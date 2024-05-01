@@ -7,3 +7,7 @@
   padding: 0;
   margin: 0;
 }
+
+.Typewriter__wrapper {
+  @apply text-5xl text-[#1dbfe9] pl-4
+}
