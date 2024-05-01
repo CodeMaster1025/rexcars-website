@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/ui/nav/Navbar';
 import Footer from '@/components/ui/footer/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["200", "400", "600"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
     title: 'Wypożyczalnia samochodów sportowych | RexCars',
@@ -23,12 +23,12 @@ export default function RootLayout({
                 <link
                     rel='icon'
                     href='/favicon.ico'
-                ></link>
+                />
             </head>
-            <body className='bg-black'>
+            <body className={'bg-black ' + poppins.className + " antialiased"}>
                 <Navbar />
                 {children}
-                {/* <Footer year={2024} /> */}
+                <Footer />
             </body>
         </html>
     );
