@@ -5,7 +5,7 @@ type navbarItemProps = {
 
 export default function NavbarItem({ value, url }: navbarItemProps) {
     return (
-        <li className='text-white font-medium border-b-2 border-b-transparent hover:text-[#1dbfe9] hover:border-b-2 hover:border-b-[#1dbfe9] cursor-pointer transition-all'>
+        <li className='text-white font-medium border-b-2 border-b-transparent hover:text-blue-primary hover:border-b-2 hover:border-b-blue-primary cursor-pointer transition-all'>
             {value}
         </li>
     );
