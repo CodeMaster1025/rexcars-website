@@ -15,13 +15,13 @@ export default function Button({ value, href, styles }: buttonProps) {
         <Link href={href}>
             <button
                 className={
-                    'flex flex-row group justify-center items-center font-semibold text-slate-800 bg-gradient-to-r from-blue-primary to-blue-secondary shadow-lg rounded-lg ease-in-out duration-300 hover:scale-90 active:scale-[0.8]' +
+                    'flex flex-row group justify-center items-center font-semibold text-blue-primary border-2 border-blue-primary ho bg-transparent shadow-lg rounded-lg hover:bg-blue-primary hover:text-slate-800 ease-in-out duration-300' +
                     stylesToAppend
                 }
             >
                 {value}
 
-                <ArrowLongRightIcon className='size-6 ml-3 stroke-2 ease-in-out duration-300 translate-x-1 group-hover:rotate-[-45deg]' />
+                <ArrowLongRightIcon className='size-6 ml-3 stroke-2 text-blue-primary ease-in-out duration-300 translate-x-1 group-hover:text-slate-800 group-hover:rotate-[-45deg]' />
             </button>
         </Link>
     );

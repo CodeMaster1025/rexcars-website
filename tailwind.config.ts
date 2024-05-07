@@ -16,6 +16,15 @@ const config: Config = {
       colors: {
         "blue-primary": "#1dbfe9",
         "blue-secondary": "#446DF6",
+      },
+      animation: {
+        fadeIn: 'fadeIn 500ms ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
       }
     },
     // colors: {

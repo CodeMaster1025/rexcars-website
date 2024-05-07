@@ -3,8 +3,13 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/sections/nav/Navbar';
 import Footer from '@/components/sections/footer/Footer';
+import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext';
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["200", "400", "600"], style: ["normal", "italic"] });
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['200', '400', '600'],
+    style: ['normal', 'italic'],
+});
 
 export const metadata: Metadata = {
     title: 'Wypożyczalnia samochodów sportowych | RexCars',
@@ -25,10 +30,12 @@ export default function RootLayout({
                     href='/favicon.ico'
                 />
             </head>
-            <body className={'bg-black ' + poppins.className + " antialiased"}>
-                <Navbar />
-                {children}
-                <Footer />
+            <body className={'bg-black ' + poppins.className + ' antialiased'}>
+                <IsElementOutOfViewProvider>
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </IsElementOutOfViewProvider>
             </body>
         </html>
     );

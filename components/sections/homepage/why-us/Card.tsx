@@ -47,7 +47,7 @@ export default function Card({ icon, heading, description }: cardProps) {
         <div className='flex flex-col justify-center items-center mx-6  rounded-lg shadow-md p-4 hover:bg-neutral-900 hover:translate-y-[-10%] hover:scale-110 hover:shadow-neutral-900/50 ease-in-out duration-300'>
             {iconToRender}
             <h3 className='text-3xl text-neutral-200 py-4'>{heading}</h3>
-            <span className='text-md text-neutral-200 text-center pt-2 pb-8'>
+            <span className='text-xl text-neutral-300 text-center pt-2 pb-8'>
                 {description}
             </span>
         </div>
