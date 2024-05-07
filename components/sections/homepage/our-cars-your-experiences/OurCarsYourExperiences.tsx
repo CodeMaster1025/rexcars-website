@@ -1,7 +1,10 @@
-import EngineIcon from "@/components/icons/EngineIcon";
-import TransmissionIcon from "@/components/icons/TransmissionIcon";
-import WheelIcon from "@/components/icons/WheelIcon";
-import Image from "next/image";
+"use client";
+
+import Image from 'next/image';
+import CarSpecyficationCard, {
+    carSpecyficationIcon,
+} from './CarSpecyficationCard';
+import CarSpecyficationCardWrapper from './CarSpecyficationCardWrapper';
 
 export default function OurCarsYourExperiences() {
     return (
@@ -12,24 +15,38 @@ export default function OurCarsYourExperiences() {
                     Twoje przeżycia
                 </span>
             </h2>
-            <section className='flex flex-col mt-10 bg-neutral-950 rounded-md items-center ease-in-out duration-300 hover:scale-105'>
+            <section className='flex flex-col mt-10 bg-neutral-950 rounded-md items-center transition-all ease-in-out duration-300'>
                 <h3 className='text-center text-4xl text-neutral-400 my-6'>
                     Volkswagen{' '}
                     <span className='text-neutral-200 font-semibold'>GOLF</span>{' '}
-                    <span className='text-blue-secondary font-semibold'>8R</span>
+                    <span className='text-blue-secondary font-semibold'>
+                        8R
+                    </span>
                 </h3>
-                <Image className="w-[80%] opacity-70 rounded-t-lg" src={"/golf-8-r.jpg"} alt="An image of Golf 8R available for rent" width={800} height={500} />
-                <section className="flex w-[80%] mx-auto py-8 justify-around items-center rounded-b-lg bg-neutral-900">
-                    <section className="flex flex-col items-center">
-                        <EngineIcon width={100} height={80}/>
-                    </section>
-                    <section className="flex flex-col items-center">
-                        <TransmissionIcon width={100} height={80} />
-                    </section>
-                    <section className="flex flex-col">
-                        <WheelIcon width={100} height={80} />
-                    </section>
-                </section>
+                <Image
+                    className='w-[80%] opacity-60 rounded-t-lg'
+                    src={'/golf-8-r.jpg'}
+                    alt='An image of Golf 8R available for rent'
+                    width={800}
+                    height={500}
+                />
+                <CarSpecyficationCardWrapper>
+                    <CarSpecyficationCard
+                        iconType={carSpecyficationIcon.ENGINE}
+                        heading='2.0l R4 Turbo'
+                        secondaryText='Zmodyfikowany układ wydechowy'
+                    />
+                    <CarSpecyficationCard
+                        iconType={carSpecyficationIcon.TRANSMISSION}
+                        heading='7-biegowa dwusprzęgłowa'
+                        secondaryText='DSG'
+                    />
+                    <CarSpecyficationCard
+                        iconType={carSpecyficationIcon.DRIVETRAIN}
+                        heading='4x4'
+                        secondaryText='Sportowy mechanizm różnicowy'
+                    />
+                </CarSpecyficationCardWrapper>
             </section>
         </article>
     );
