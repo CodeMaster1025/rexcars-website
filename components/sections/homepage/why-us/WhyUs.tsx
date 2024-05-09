@@ -3,8 +3,8 @@ import Card, { CardIcon } from "@/components/sections/homepage/why-us/Card";
 
 export default function WhyUs() {
     return (
-        <section className='flex flex-col w-[80%] mx-auto mb-10'>
-            <h2 className='text-neutral-200 text-5xl my-5 mb-14'>
+        <section className='flex flex-col md:w-[80%] w-[90%] mx-auto mb-10'>
+            <h2 className='text-neutral-200 md:text-5xl text-2xl my-5 mb-14'>
                 Dlaczego akurat{' '}
                 <span className="font-semibold">Rex</span>
                 <span className='text-blue-primary font-semibold'>Cars</span>

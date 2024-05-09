@@ -9,5 +9,5 @@
 }
 
 .Typewriter__wrapper {
-  @apply text-6xl text-blue-primary pl-4 font-semibold
+  @apply md:text-6xl text-3xl text-blue-primary md:pl-4 pl-2 font-semibold
 }

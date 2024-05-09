@@ -7,8 +7,8 @@ import Link from 'next/link';
 export default function OurCarsYourExperiences() {
     console.log(typeof window === 'undefined');
     return (
-        <article className='flex flex-col w-[80%] mx-auto mt-[8%]'>
-            <h2 className='text-neutral-200 text-5xl text-center'>
+        <article className='flex flex-col md:w-[80%] w-[90%] mx-auto mt-[8%]'>
+            <h2 className='text-neutral-200 md:text-5xl text-2xl text-center'>
                 Nasze auta -{' '}
                 <span className='text-blue-primary font-semibold'>
                     Twoje przeżycia
@@ -16,14 +16,14 @@ export default function OurCarsYourExperiences() {
             </h2>
             {/* <section className='flex flex-col mt-10 bg-neutral-950 rounded-md items-center transition-all ease-in-out duration-300'> */}
             <CarSectionWrapper>
-                <h3 className='text-center text-4xl text-neutral-400 my-6'>
+                <h3 className='text-center md:text-4xl text-2xl text-neutral-400 my-6'>
                     Volkswagen{' '}
                     <span className='text-neutral-200 font-semibold'>GOLF</span>{' '}
                     <span className='text-blue-secondary font-semibold'>
                         8R
                     </span>
                 </h3>
-                <Link href={'/oferta/wynajem-golf-8-r'} className='w-[80%]'>
+                <Link href={'/oferta/wynajem-golf-8-r'} className='md:w-[80%] w-full'>
                     <Image
                         className='opacity-60 rounded-t-lg w-full'
                         src={'/golf-8-r.jpg'}

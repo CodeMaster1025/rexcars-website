@@ -30,7 +30,7 @@ export default function RootLayout({
                     href='/favicon.ico'
                 />
             </head>
-            <body className={'bg-black ' + poppins.className + ' antialiased'}>
+            <body className={'bg-black ' + poppins.className + ' antialiased max-w-[100vw]'}>
                 <IsElementOutOfViewProvider>
                     <Navbar />
                     {children}

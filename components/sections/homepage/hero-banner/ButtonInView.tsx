@@ -16,7 +16,7 @@ export function ButtonInView() {
             <Button
                 value='Zarezerwuj'
                 href='/zarezerwuj'
-                styles='py-2 px-14 text-2xl'
+                styles='md:py-2 md:px-14 md:text-2xl py-1 px-8 text-lg'
             />
         </InView>
     );

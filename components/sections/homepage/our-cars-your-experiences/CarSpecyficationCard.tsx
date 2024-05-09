@@ -59,26 +59,32 @@ export default function CarSpecyficationCard({
 
     return (
         <motion.section
-            layout="position"
-            className='flex flex-col basis-4/12 flex-initial items-center transition-all bg-neutral-900 ease-in-out duration-300'
-            initial={{opacity: 0,
+            layout='position'
+            className='flex flex-col md:basis-4/12 mb-6 md:pb-0 flex-initial items-center transition-all bg-neutral-900 ease-in-out duration-300'
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: {
+                    duration: 1,
+                    staggerChildren: 0.2,
+                },
             }}
-            animate={{opacity: 1, transition: {
-                duration: 1,
-                staggerChildren: .2
-            }}}
         >
-            {active && <motion.div layout="position">{iconToRender}</motion.div>}
-            {active && (
-                <motion.section className='flex-col justify-center ease-in-out bg-neutral-900 animate-fadeIn'>
-                    <motion.h4 layout="position" className='text-neutral-200 font-semibold text-xl text-center'>
-                        {heading}
-                    </motion.h4>
-                    <motion.p className='text-neutral-400 text-lg text-center'>
-                        {secondaryText}
-                    </motion.p>
-                </motion.section>
-            )}
+            <motion.div layout='position'>{iconToRender}</motion.div>
+            <motion.section
+                className='flex-col justify-center ease-in-out bg-neutral-900 animate-fadeIn'
+                layout='position'
+            >
+                <motion.h4
+                    layout='position'
+                    className='text-neutral-200 font-semibold text-xl text-center'
+                >
+                    {heading}
+                </motion.h4>
+                <motion.p className='text-neutral-400 text-lg text-center'>
+                    {secondaryText}
+                </motion.p>
+            </motion.section>
         </motion.section>
     );
 }

@@ -19,13 +19,14 @@ export default function CarSpecyficationCardWrapper() {
     return (
         <motion.section
             layout='position'
-            className='flex flex-col w-[80%] items-center'
+            className='flex flex-col md:w-[80%] w-full items-center'
             transition={{ layout: {duration: .6}, type: 'spring', stiffness: 90 }}
-        >
+        >   
+        {unwinded && (
             <motion.section
                 layout='position'
                 transition={{ layout: { duration: 0.6 } }}
-                className={`flex w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
+                className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
                     unwinded ? 'py-8' : ''
                 }`}
             >
@@ -48,6 +49,7 @@ export default function CarSpecyficationCardWrapper() {
                     active={unwinded}
                 />
             </motion.section>
+        )}
             <motion.div
                 layout='position'
                 className='flex group mx-auto cursor-pointer w-full justify-center items-center bg-blue-secondary'
@@ -57,7 +59,7 @@ export default function CarSpecyficationCardWrapper() {
             >
                 <motion.h4
                     layout='position'
-                    className='text-neutral-200 text-2xl font-medium my-2 mx-2'
+                    className='text-neutral-200 md:text-2xl text-lg font-medium md:my-2 my-1 mx-2'
                 >
                     Dane techniczne
                 </motion.h4>
@@ -78,7 +80,7 @@ export default function CarSpecyficationCardWrapper() {
                 }}
             >
                 <Link href={'/oferta/wynajem-golf-8-r'}>
-                    <button className='flex flex-row group text-2xl py-4 justify-center w-full items-center font-semibold text-neutral-200 bg-transparent shadow-lg active:scale-[0.9]'>
+                    <button className='flex flex-row group md:text-2xl text-xl md:py-4 py-2 justify-center w-full items-center font-semibold text-neutral-200 bg-transparent shadow-lg active:scale-[0.9]'>
                         Już od 650zł
                         <ArrowLongRightIcon className='text-neutral-200 size-8 ml-3 stroke-2 ease-in-out duration-300 translate-x-1 group-hover:rotate-[-45deg]' />
                     </button>
