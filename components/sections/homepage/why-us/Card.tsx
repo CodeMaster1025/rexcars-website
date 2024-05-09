@@ -22,7 +22,7 @@ export default function Card({ icon, heading, description }: cardProps) {
     switch (icon) {
         case CardIcon.CHECK:
             iconToRender = (
-                <CheckBadgeIcon className='text-blue-primary md:size-16 size-14 ' />
+                <CheckBadgeIcon className='text-blue-primary md:size-16 size-14' />
             );
             break;
 

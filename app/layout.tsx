@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/sections/nav/Navbar';
 import Footer from '@/components/sections/footer/Footer';
 import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -36,6 +37,8 @@ export default function RootLayout({
                     {children}
                     <Footer />
                 </IsElementOutOfViewProvider>
+
+                <SpeedInsights />
             </body>
         </html>
     );
