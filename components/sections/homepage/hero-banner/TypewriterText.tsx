@@ -1,10 +1,10 @@
 'use client';
 
+import Typewriter from 'typewriter-effect';
+
 type typewriterTextProps = {
     strings: string[];
 };
-
-import Typewriter from 'typewriter-effect';
 
 export default function TypewriterText({ strings }: typewriterTextProps) {
     return (

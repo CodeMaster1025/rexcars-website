@@ -19,7 +19,7 @@ export default function AboutUs() {
                     />
                 </figure>
                 <div className='text-2xl text-neutral-200 text-center h-full my-auto justify-center items-center'>
-                    <p className='w-[85%] mx-auto justify-center items-center mb-10'>
+                    <section className='w-[85%] mx-auto justify-center items-center mb-10'>
                         <span className='font-semibold'>Rex</span>
                         <span className='text-blue-primary font-semibold'>
                             Cars
@@ -28,7 +28,7 @@ export default function AboutUs() {
                         luksusowych a coś więcej, to miejsce gdzie możesz
                         wynająć swój wymarzony samochód i przeżyć niezapomniane
                         chwile za jego kierownicą.{' '}
-                        <p>
+                        <span>
                             Nasze motto nie wzięło się znikąd:{' '}
                             <p className='py-4 font-semibold text-center'>
                                 „Nasze auta,{' '}
@@ -37,10 +37,10 @@ export default function AboutUs() {
                                 </span>
                                 ”
                             </p>
-                        </p>{' '}
+                        </span>{' '}
                         Wiemy czego oczekują nasi klienci, dlatego nasze auta
                         zostały zmodyfikowane specjalnie dla was.
-                    </p>
+                    </section>
                     <Button
                         value='Zarezerwuj teraz'
                         href='/zarezerwuj'

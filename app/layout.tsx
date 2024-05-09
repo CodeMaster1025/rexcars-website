@@ -7,7 +7,7 @@ import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext'
 
 const poppins = Poppins({
     subsets: ['latin'],
-    weight: ['200', '400', '600'],
+    weight: ['200', '400', '500', '600'],
     style: ['normal', 'italic'],
 });
 
