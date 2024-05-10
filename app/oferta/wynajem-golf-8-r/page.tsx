@@ -1,3 +1,5 @@
+import CarDescriptionSection from '@/components/sections/oferta/wynajem-golf-8-r/car-description/CarDescriptionSection';
+import FAQSection from '@/components/sections/oferta/wynajem-golf-8-r/faq-section/FAQSection';
 import PriceChart from '@/components/sections/oferta/wynajem-golf-8-r/price-chart/PriceChart';
 import Head from 'next/head';
 
@@ -65,6 +67,10 @@ export default function PageGolf8R() {
                 <article className='flex md:flex-row flex-col'>
                     <PriceChart />
                 </article>
+
+                <CarDescriptionSection />
+
+                <FAQSection />
             </main>
         </>
     );
