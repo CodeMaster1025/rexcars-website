@@ -27,8 +27,8 @@ export default function NavbarItemList() {
             <NavbarDivider margin={DIVIDER_MARGIN} />
             <NavbarItem
                 value='Samochody'
-                url='/oferta'
-                active={currentPathname === "/oferta"}
+                url='/oferta/wynajem-golf-8-r'
+                active={currentPathname.split("/")[1] === "oferta"}
             />
             <NavbarDivider margin={DIVIDER_MARGIN} />
             <NavbarItem
