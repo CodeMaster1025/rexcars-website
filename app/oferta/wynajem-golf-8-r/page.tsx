@@ -1,3 +1,4 @@
+import PriceChart from '@/components/sections/oferta/wynajem-golf-8-r/price-chart/PriceChart';
 import Head from 'next/head';
 
 export default function PageGolf8R() {
@@ -53,15 +54,17 @@ export default function PageGolf8R() {
                 />
             </Head>
 
-            <header className='flex flex-col md:my-[5%] my-[10%]'>
+            <header className='flex flex-col md:mt-[4%] md:mb-[2%] my-[10%]'>
                 <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold'>
                     Wynajem <span className='text-neutral-400'>Volkswagen</span>{' '}
                     Golf <span className='text-blue-secondary'>8R</span>
                 </h1>
             </header>
 
-            <main>
-
+            <main className='flex flex-col md:w-[80%] w-[90%] mx-auto'>
+                <article className='flex md:flex-row flex-col'>
+                    <PriceChart />
+                </article>
             </main>
         </>
     );
