@@ -5,7 +5,6 @@ import TiktokIcon from '@/components/icons/TiktokIcon';
 import FacebookIcon from '@/components/icons/FacebookIcon';
 import { ButtonInView } from './ButtonInView';
 
-
 export default function HeroBanner() {
     return (
         <article className='flex mx-0 w-full place-content-center justify-center relative overflow-hidden'>
@@ -22,14 +21,19 @@ export default function HeroBanner() {
             </figure>
             <div className='flex flex-col absolute inset-0 bg-gradient-to-b from-transparent to-black from-20%'>
                 <div className='flex flex-row bg-transparent justify-center items-center w-full md:mt-36 mt-24 mb-5'>
-                    <h1 className='text-3xl md:text-6xl text-neutral-200'>Poczuj</h1>
+                    <h1 className='text-3xl md:text-6xl text-neutral-200'>
+                        Poczuj
+                    </h1>
                     <TypewriterText strings={['Moc', 'Styl', 'Adrenalinę']} />
                 </div>
                 <section className='flex flex-col md:max-w-[50%] max-w-[80%] mx-auto items-center justify-center'>
-                    <span className='md:text-xl text-md text-neutral-200 text-center mb-2'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis perferendis, dolores ducimus obcaecati eaque
-                        quod! Consequuntur impedit quae tenetur consectetur!
+                    <span className='md:text-lg text-md text-neutral-200 text-center mb-2'>
+                        Każde z aut jest jedyne w swoim rodzaju. Mimo tego,
+                        że producenci tych zabawek stanęli na wysokości zadania,
+                        My poprawiamy fabrykę. Udoskonalamy je tak, aby nasze
+                        samochody były unikatowe i dawały jeszcze więcej radości
+                        z jazdy. Nie ma na co czekać, sam/a się przekonaj i już
+                        dziś zarezerwuj najbliższy termin!
                     </span>
                     <div className='flex flex-row items-center justify-between mb-8 md:w-[20%] w-[40%]'>
                         <InstagramIcon

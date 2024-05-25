@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import CarSpecyficationCardWrapper from './CarSpecyficationCardWrapper';
-import { motion } from 'framer-motion';
 import CarSectionWrapper from './CarSectionWrapper';
 import Link from 'next/link';
 
 export default function OurCarsYourExperiences() {
     console.log(typeof window === 'undefined');
     return (
-        <article className='flex flex-col md:w-[80%] w-[90%] mx-auto mt-[8%]'>
+        <article className='flex flex-col md:w-[80%] w-[90%] mx-auto mt-[8%]' id='our-cars'>
             <h2 className='text-neutral-200 md:text-5xl text-2xl text-center'>
                 Nasze auta -{' '}
                 <span className='text-blue-primary font-semibold'>
@@ -19,7 +18,7 @@ export default function OurCarsYourExperiences() {
                 <h3 className='text-center md:text-4xl text-2xl text-neutral-400 my-6'>
                     Volkswagen{' '}
                     <span className='text-neutral-200 font-semibold'>GOLF</span>{' '}
-                    <span className='text-blue-secondary font-semibold'>
+                    <span className='text-blue-primary font-semibold'>
                         8R
                     </span>
                 </h3>

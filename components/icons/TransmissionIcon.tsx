@@ -7,7 +7,7 @@ export default function TransmissionIcon({ width, height }: iconProps) {
             width={width}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 512 512'
-            className='fill-blue-secondary'
+            className='fill-blue-primary'
         >
             <path
                 d='M336.896,269.874c-18.795,0-36.449,7.308-49.698,20.575c-13.276,13.267-20.593,30.912-20.593,49.698

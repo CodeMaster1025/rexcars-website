@@ -1,13 +1,15 @@
+import EighteenIcon from '@/components/icons/EighteenIcon';
 import {
-    BanknotesIcon,
     CheckBadgeIcon,
-    FaceSmileIcon,
+    TruckIcon,
+    WalletIcon,
 } from '@heroicons/react/24/outline';
 
 export enum CardIcon {
     CHECK,
-    MONEY,
-    SMILE,
+    WALLET,
+    TRUCK,
+    EIGHTEEN,
 }
 
 type cardProps = {
@@ -26,15 +28,21 @@ export default function Card({ icon, heading, description }: cardProps) {
             );
             break;
 
-        case CardIcon.MONEY:
+        case CardIcon.WALLET:
             iconToRender = (
-                <BanknotesIcon className='text-blue-primary md:size-16 size-14' />
+                <WalletIcon className='text-blue-primary md:size-16 size-14' />
             );
             break;
 
-        case CardIcon.SMILE:
+        case CardIcon.TRUCK:
             iconToRender = (
-                <FaceSmileIcon className='text-blue-primary md:size-16 size-14' />
+                <TruckIcon className='text-blue-primary md:size-16 size-14' />
+            );
+            break;
+        
+        case CardIcon.EIGHTEEN:
+            iconToRender = (
+                <EighteenIcon width={64} height={64} />
             );
             break;
 
@@ -44,10 +52,10 @@ export default function Card({ icon, heading, description }: cardProps) {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center mx-6  rounded-lg shadow-md p-4 hover:bg-neutral-900 hover:translate-y-[-10%] hover:scale-110 hover:shadow-neutral-900/50 ease-in-out duration-300'>
+        <div className='flex flex-col basis-4/12 items-center mx-6  rounded-lg shadow-md p-4 hover:bg-neutral-900 hover:translate-y-[-10%] hover:scale-110 hover:shadow-neutral-900/50 ease-in-out duration-300'>
             {iconToRender}
-            <h3 className='md:text-3xl text-xl text-neutral-200 py-4'>{heading}</h3>
-            <span className='md:text-xl text-lg text-neutral-300 text-center pt-2 pb-8'>
+            <h3 className='md:text-2xl text-lg font-semibold text-center text-neutral-200 py-4'>{heading}</h3>
+            <span className=' md:text-base text-sm text-neutral-300 text-center pt-2 pb-8'>
                 {description}
             </span>
         </div>

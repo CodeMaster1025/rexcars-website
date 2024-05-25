@@ -15,7 +15,7 @@ export default function Button({ value, href, styles }: buttonProps) {
         <Link href={href}>
             <button
                 className={
-                    'flex flex-row group justify-center items-center font-semibold text-slate-800 bg-gradient-to-r from-blue-primary to-blue-secondary shadow-lg rounded-lg ease-in-out duration-300 hover:scale-90 active:scale-[0.8]' +
+                    'flex flex-row group justify-center items-center font-semibold text-slate-800 bg-blue-primary shadow-lg rounded-lg ease-in-out duration-300 hover:scale-90 active:scale-[0.8]' +
                     stylesToAppend
                 }
             >

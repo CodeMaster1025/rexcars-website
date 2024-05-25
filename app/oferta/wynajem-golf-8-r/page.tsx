@@ -1,4 +1,5 @@
 import CarDescriptionSection from '@/components/sections/oferta/wynajem-golf-8-r/car-description/CarDescriptionSection';
+import CarSpecyficationSection from '@/components/sections/oferta/wynajem-golf-8-r/car-specyfication/CarSpecyficationSection';
 import FAQSection from '@/components/sections/oferta/wynajem-golf-8-r/faq-section/FAQSection';
 import PriceChart from '@/components/sections/oferta/wynajem-golf-8-r/price-chart/PriceChart';
 import Head from 'next/head';
@@ -57,16 +58,21 @@ export default function PageGolf8R() {
             </Head>
 
             <header className='flex flex-col md:mt-[4%] md:mb-[2%] my-[10%]'>
-                <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold'>
+                <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold w-full'>
                     Wynajem <span className='text-neutral-400'>Volkswagen</span>{' '}
-                    Golf <span className='text-blue-secondary'>8R</span>
+                    Golf <span className='text-blue-primary'>8R</span>
                 </h1>
             </header>
 
             <main className='flex flex-col md:w-[80%] w-[90%] mx-auto'>
                 <article className='flex md:flex-row flex-col'>
+                    <section className='flex lg:basis-9/12 md:basis-8/12 bg-neutral-900 rounded-lg px-2'>
+                        <h1>Im here</h1>
+                    </section>
                     <PriceChart />
                 </article>
+
+                <CarSpecyficationSection />
 
                 <CarDescriptionSection />
 

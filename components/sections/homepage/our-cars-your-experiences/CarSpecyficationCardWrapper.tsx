@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import CarSpecyficationCard, {
-    carSpecyficationIcon,
-} from './CarSpecyficationCard';
+import CarSpecyficationCard from './CarSpecyficationCard';
 import {
     ArrowLongRightIcon,
     ChevronDoubleDownIcon,
@@ -11,6 +9,7 @@ import {
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import { carSpecyficationIcon, renderIcon } from '@/lib/renderIcon';
 
 export default function CarSpecyficationCardWrapper() {
     // Track the state of car specyfication bar
@@ -20,41 +19,61 @@ export default function CarSpecyficationCardWrapper() {
         <motion.section
             layout='position'
             className='flex flex-col md:w-[80%] w-full items-center'
-            transition={{ layout: {duration: .6}, type: 'spring', stiffness: 90 }}
-        >   
-        {unwinded && (
-            <motion.section
-                layout='position'
-                transition={{ layout: { duration: 0.6 } }}
-                className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
-                    unwinded ? 'py-8' : ''
-                }`}
-            >
-                <CarSpecyficationCard
-                    iconType={carSpecyficationIcon.ENGINE}
-                    heading='2.0l R4 Turbo'
-                    secondaryText='350KM / 450Nm'
-                    active={unwinded}
-                />
-                <CarSpecyficationCard
-                    iconType={carSpecyficationIcon.TRANSMISSION}
-                    heading='7-biegowa automatyczna'
-                    secondaryText='Dwusprzęgłowa DSG'
-                    active={unwinded}
-                />
-                <CarSpecyficationCard
-                    iconType={carSpecyficationIcon.DRIVETRAIN}
-                    heading='Napęd 4Motion'
-                    secondaryText='Sportowy mechanizm różnicowy'
-                    active={unwinded}
-                />
-            </motion.section>
-        )}
+            transition={{
+                layout: { duration: 0.6 },
+                type: 'spring',
+                stiffness: 90,
+            }}
+        >
+            {unwinded && (
+                <motion.section
+                    layout='position'
+                    transition={{ layout: { duration: 0.6 } }}
+                    className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
+                        unwinded ? 'py-8' : ''
+                    }`}
+                >
+                    <CarSpecyficationCard
+                        icon={renderIcon({
+                            iconType: carSpecyficationIcon.ENGINE,
+                            width: 80,
+                            height: 100,
+                        })}
+                        heading='2.0l R4 Turbo'
+                        secondaryText='350KM / 450Nm'
+                        active={unwinded}
+                    />
+                    <CarSpecyficationCard
+                        icon={renderIcon({
+                            iconType: carSpecyficationIcon.TRANSMISSION,
+                            width: 80,
+                            height: 100,
+                        })}
+                        heading='7-biegowa automatyczna'
+                        secondaryText='Dwusprzęgłowa DSG'
+                        active={unwinded}
+                    />
+                    <CarSpecyficationCard
+                        icon={renderIcon({
+                            iconType: carSpecyficationIcon.DRIVETRAIN,
+                            width: 80,
+                            height: 100,
+                        })}
+                        heading='Napęd 4Motion'
+                        secondaryText='Sportowy mechanizm różnicowy'
+                        active={unwinded}
+                    />
+                </motion.section>
+            )}
             <motion.div
                 layout='position'
                 className='flex group mx-auto cursor-pointer w-full justify-center items-center bg-blue-secondary'
-                transition={{ layout: { duration: 0.4 }, type: "spring", stiffness: 100 }}
-                whileHover={{opacity: .6, transition: {duration: .3}}}
+                transition={{
+                    layout: { duration: 0.4 },
+                    type: 'spring',
+                    stiffness: 100,
+                }}
+                whileHover={{ opacity: 0.6, transition: { duration: 0.3 } }}
                 onClick={() => setUnwinded(!unwinded)}
             >
                 <motion.h4
@@ -73,10 +92,15 @@ export default function CarSpecyficationCardWrapper() {
             </motion.div>
             <motion.div
                 layout='position'
-                transition={{ layout: { duration: 0.4 }, type: "spring", stiffness: 90 }}
+                transition={{
+                    layout: { duration: 0.4 },
+                    type: 'spring',
+                    stiffness: 90,
+                }}
                 className='w-full bg-blue-800 rounded-b-lg'
-                whileHover={{backgroundColor: "#1e3a8a",
-                    transition: {duration: .3}
+                whileHover={{
+                    backgroundColor: '#1e3a8a',
+                    transition: { duration: 0.3 },
                 }}
             >
                 <Link href={'/oferta/wynajem-golf-8-r'}>

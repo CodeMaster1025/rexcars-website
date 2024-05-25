@@ -7,7 +7,7 @@ export default function EngineIcon({ width, height }: iconProps) {
             width={width}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 511.999 511.999'
-            className='fill-blue-secondary stroke-1'
+            className='fill-blue-primary stroke-1'
         >
             <path
                 d='M494.32,196.801l-4.858-8.131h-85.516v39.564h-8.557v-57.371h-44.32l-28.138-24.95h-46.53v-22.695h14.966V89.827H172.742

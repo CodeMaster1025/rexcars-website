@@ -1,61 +1,18 @@
-import EngineIcon from '@/components/icons/EngineIcon';
-import TransmissionIcon from '@/components/icons/TransmissionIcon';
-import WheelIcon from '@/components/icons/WheelIcon';
 import { motion } from 'framer-motion';
 
 type carSpecyficationCardProps = {
     active: boolean;
-    iconType: carSpecyficationIcon;
+    icon: JSX.Element | null;
     heading: string;
     secondaryText: string;
 };
 
-export enum carSpecyficationIcon {
-    ENGINE,
-    TRANSMISSION,
-    DRIVETRAIN,
-}
-
 export default function CarSpecyficationCard({
-    iconType,
+    icon,
     heading,
     secondaryText,
     active,
 }: carSpecyficationCardProps) {
-    // Conditionally render icon given iconType prop
-    let iconToRender;
-    switch (iconType) {
-        case carSpecyficationIcon.ENGINE:
-            iconToRender = (
-                <EngineIcon
-                    width={80}
-                    height={100}
-                />
-            );
-            break;
-
-        case carSpecyficationIcon.TRANSMISSION:
-            iconToRender = (
-                <TransmissionIcon
-                    width={80}
-                    height={100}
-                />
-            );
-            break;
-
-        case carSpecyficationIcon.DRIVETRAIN:
-            iconToRender = (
-                <WheelIcon
-                    width={80}
-                    height={100}
-                />
-            );
-            break;
-
-        default:
-            iconToRender = null;
-            break;
-    }
 
     return (
         <motion.section
@@ -70,7 +27,7 @@ export default function CarSpecyficationCard({
                 },
             }}
         >
-            <motion.div layout='position'>{iconToRender}</motion.div>
+            <motion.div layout='position'>{icon}</motion.div>
             <motion.section
                 className='flex-col justify-center ease-in-out bg-neutral-900 animate-fadeIn'
                 layout='position'

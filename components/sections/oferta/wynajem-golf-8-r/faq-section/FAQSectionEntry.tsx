@@ -30,13 +30,13 @@ export default function FAQSectionEntry({
                 <motion.h3
                     layout='position'
                     className='text-3xl text-neutral-200'
-                    animate={{ color: expanded ? '#446DF6' : '#e5e5e5' }}
+                    animate={{ color: expanded ? '#1dbfe9' : '#e5e5e5' }}
                 >
                     {heading}
                 </motion.h3>
                 <ChevronDownIcon
                     className={`${
-                        expanded ? 'text-blue-secondary' : 'text-neutral-200'
+                        expanded ? 'text-blue-primary' : 'text-neutral-200'
                     } size-6 hover:cursor-pointer ease-in-out duration-300 ${
                         expanded ? 'rotate-180' : ''
                     }`}
