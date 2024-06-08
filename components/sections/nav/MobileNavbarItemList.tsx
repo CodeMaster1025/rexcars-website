@@ -102,14 +102,14 @@ export default function MobileNavbarItemList() {
                         exit="hidden"
                         variants={navList}
                         >
-                            {navItems.map((item) => {
-                                return (<motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)}>
+                            {navItems.map((item, index) => {
+                                return (<motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)} key={index}>
                                     <Link href={item.href} className='text-neutral-200 text-lg text-center'>
                                         {item.value}
                                     </Link>
                                 </motion.li>)
                             })}
-                            <motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)}>
+                            <motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)} key={4}>
                             <OutlineButton
                                 value='Zarezerwuj'
                                 href='?reserve=true'

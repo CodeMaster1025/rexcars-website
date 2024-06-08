@@ -34,7 +34,7 @@ export default function CookiesConsentBanner() {
                     Korzystamy z plików Cookies, w celu zapewnienia naszym
                     użytkownikom najlepszych odczuć z korzystania z naszej
                     strony, oraz do analizy ruchu na naszej stronie. Klikając
-                    przycisk "Zgadzam się", zgadzasz się na gromadzenie przez
+                    przycisk &quot;Zgadzam się&quot;, zgadzasz się na gromadzenie przez
                     nas plików Cookies.
                 </p>
                 <Link href={'/polityka-prywatnosci'}>
