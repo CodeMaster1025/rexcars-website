@@ -1,7 +1,7 @@
 import { iconProps } from '@/types/iconProps';
 import Link from 'next/link';
 
-export default function InstagramIcon({ width, height }: iconProps) {
+export default function InstagramIcon({ width, height, color }: iconProps) {
     return (
         <figure>
             <Link
@@ -14,7 +14,7 @@ export default function InstagramIcon({ width, height }: iconProps) {
                     xmlns='http://www.w3.org/2000/svg'
                     width={width}
                     height={height}
-                    className='fill-neutral-200 ease-in-out duration-200 hover:cursor-pointer hover:fill-[#F56040]'
+                    className={`${color ? "fill-" + color : "fill-neutral-200 ease-in-out duration-200 hover:fill-[#F56040]"} hover:cursor-pointer`}
                 >
                     <title />
                     <path d='M83,23a22,22,0,0,1,22,22V83a22,22,0,0,1-22,22H45A22,22,0,0,1,23,83V45A22,22,0,0,1,45,23H83m0-8H45A30.09,30.09,0,0,0,15,45V83a30.09,30.09,0,0,0,30,30H83a30.09,30.09,0,0,0,30-30V45A30.09,30.09,0,0,0,83,15Z' />

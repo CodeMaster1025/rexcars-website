@@ -29,7 +29,7 @@ export default function FAQSectionEntry({
             >
                 <motion.h3
                     layout='position'
-                    className='text-3xl text-neutral-200'
+                    className='md:text-3xl text-lg text-neutral-200'
                     animate={{ color: expanded ? '#1dbfe9' : '#e5e5e5' }}
                 >
                     {heading}
@@ -50,22 +50,21 @@ export default function FAQSectionEntry({
                         animate='open'
                         exit='collapsed'
                         transition={{
-                            duration: 0.3,
-                            ease: [0.4, 0.72, 0.83, 0.98],
+                            duration: 0.1,
                         }}
                         variants={{
                             open: {
                                 opacity: 1,
                                 height: 'auto',
-                                transition: { duration: 0.2 },
+                                transition: { duration: 0.1 },
                             },
                             collapsed: {
                                 opacity: 0,
                                 height: 0,
-                                transition: { duration: 0.2 },
+                                transition: { duration: 0.1 },
                             },
                         }}
-                        className='text-neutral-400'
+                        className='text-neutral-400 py-2'
                     >
                         {content}
                     </motion.p>

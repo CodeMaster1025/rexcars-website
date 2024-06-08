@@ -2,21 +2,22 @@ import OutlineButton from '@/components/ui/OutlineButton';
 import PriceChartEntry from './PriceChartEntry';
 import Button from '@/components/ui/Button';
 import PriceChartAddonEntry from './PriceChartAddonEntry';
-import getPriceChartData from '@/data/priceChart';
+import { IPriceChartEntry } from '@/types/priceChart';
 
+type IPriceChartProps = {
+    entries: IPriceChartEntry[];
+}
 
-export default async function PriceChart() {
-    const priceChartData = await getPriceChartData();
-
+export default async function PriceChart({ entries }: IPriceChartProps) {
     return (
         <section className='flex flex-col lg:basis-3/12 md:basis-4/12 bg-neutral-800 py-4 rounded-lg'>
             <h2 className='text-3xl text-blue-primary font-semibold text-center pb-6 '>
                 Cennik wynajmu
             </h2>
             <ul className='flex flex-col'>
-                {priceChartData.entries.map(
-                    ({ rentDuration, price, kilometersLimit, perDay }, index) => (
-                        <PriceChartEntry rentDuration={rentDuration} price={price} kilometersLimit={kilometersLimit} perDay={perDay} key={"entry" + index}/>
+                {entries.map(
+                    ({ duration, price, kilometersLimit, perDay, _key }) => (
+                        <PriceChartEntry duration={duration} price={price} kilometersLimit={kilometersLimit} perDay={perDay} key={_key} _key={_key}/>
                     )
                 )}
             </ul>
@@ -28,11 +29,10 @@ export default async function PriceChart() {
                 Dodatki:
             </h2>
             <ul className='flex flex-col'>
-            {priceChartData.addons.map(
-                    ({ price, addonName }, index) => (
-                        <PriceChartAddonEntry addonName={addonName} price={price} key={"addon" + index}/>
-                    )
-                )}
+            {/* PRICE CHART ADDONS */}
+            <PriceChartAddonEntry addonName='Dodatkowe 100km limitu' price={150}/>
+            <PriceChartAddonEntry addonName='Dodatkowe 200km limitu' price={250}/>
+            <PriceChartAddonEntry addonName='Dodatkowy kierowca' price={200}/>
             </ul>
 
             <h4 className='text-center text-neutral-400 text-sm font-thin italic'>
@@ -46,8 +46,9 @@ export default async function PriceChart() {
             />
             <Button
                 value='Zarezerwuj'
-                href='/zarezerwuj'
+                href='?reserve=true'
                 styles='w-[90%] py-2 mx-auto mt-2 text-neutral-200 font-semibold text-lg'
+                scroll={false}
             />
         </section>
     );

@@ -7,7 +7,7 @@ export default function CardWrapper({
 }) {
     const cardsNumber = Children.toArray(children).length;
     return (
-        <div className={"flex md:flex-row flex-col justify-between mx-auto "}>
+        <div className={"flex lg:flex-row flex-col justify-between mx-auto "}>
             {children}
         </div>
     );

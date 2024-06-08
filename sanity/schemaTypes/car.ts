@@ -27,7 +27,7 @@ export const car = defineType({
       validation: rule => rule.required(),
       options: {
         source: (doc, options) => {
-            return `wynajem-${doc.carMake.toLowerCase()}-${doc.carModel.toLowerCase()}`
+            return `wynajem-${(doc.carMake as string).toLowerCase()}-${(doc.carModel as string).toLowerCase()}`
         }
       }
     }),
@@ -56,11 +56,11 @@ export const car = defineType({
               title: 'Typ danych',
               options: {
                 list: [
-                  {title: 'Silnik', value: 'engine'},
-                  {title: 'Skrzynia', value: 'transmission'},
-                  {title: 'Napęd', value: 'drivetrain'},
-                  {title: 'Miejsca', value: 'seats'},
-                  {title: 'XXXX', value: 'toBeImplemented'},
+                  {title: 'Silnik', value: 'ENGINE'},
+                  {title: 'Skrzynia', value: 'TRANSMISSION'},
+                  {title: 'Napęd', value: 'DRIVETRAIN'},
+                  {title: 'Miejsca', value: 'SEATS'},
+                  {title: 'XXXX', value: 'TBI'},
                 ],
               },
             },
@@ -69,7 +69,7 @@ export const car = defineType({
           ],
         },
       ],
-      validation: rule => rule.required().custom((technicalSpecArray) => technicalSpecArray?.length >= 5 ? true : "Musisz dodać opis dla kazdego typu."),
+      validation: rule => rule.required().custom((technicalSpecArray) => (technicalSpecArray as object[])?.length >= 5 ? true : "Musisz dodać opis dla kazdego typu."),
     }),
 
     defineField({

@@ -18,7 +18,7 @@ export default function NavbarItemList() {
     const { isElementOutOfView } = useIsElementOutOfView();
 
     return (
-        <ul className='flex flex-row items-center text-blue-500 py-2 transition-all ease-in-out duration-500'>
+        <ul className='lg:flex hidden flex-row items-center text-blue-500 py-2 transition-all ease-in-out duration-500'>
             <NavbarItem
                 value='Strona Główna'
                 url='/'
@@ -27,7 +27,7 @@ export default function NavbarItemList() {
             <NavbarDivider margin={DIVIDER_MARGIN} />
             <NavbarItem
                 value='Samochody'
-                url='/oferta/wynajem-golf-8-r'
+                url='/#our-cars'
                 active={currentPathname.split('/')[1] === 'oferta'}
             />
             <NavbarDivider margin={DIVIDER_MARGIN} />
@@ -35,12 +35,6 @@ export default function NavbarItemList() {
                 value='Voucher'
                 url='/voucher'
                 active={currentPathname === '/voucher'}
-            />
-            <NavbarDivider margin={DIVIDER_MARGIN} />
-            <NavbarItem
-                value='FAQ'
-                url='/faq'
-                active={currentPathname === '/faq'}
             />
             <NavbarDivider margin={DIVIDER_MARGIN} />
             <NavbarItem
@@ -57,8 +51,9 @@ export default function NavbarItemList() {
                 <li>
                     <OutlineButton
                         value='Zarezerwuj'
-                        href='/zarezerwuj'
+                        href='?reserve=true'
                         styles='py-1 mb-1 px-6 transition-opacity duration-500 ease-in-out opacity-100 animate-fadeIn'
+                        scroll={false}
                     />
                 </li>
             )}

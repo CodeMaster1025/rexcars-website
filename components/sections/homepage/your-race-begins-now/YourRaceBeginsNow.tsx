@@ -8,7 +8,7 @@ export default function YourRaceBeginsNow() {
                     Twój wyścig zaczyna się <span className="text-blue-primary font-semibold">dziś.</span>
                 </h2>
                 <h4 className="text-neutral-400 md:text-xl text-md mb-7">Jeśli masz jakieś pytania, skontaktuj się z nami i pozwól nam rozwiać Twoje wątpliwości</h4>
-                <Button value="Porozmawiajmy" href="/kontakt" styles="md:w-[25%] w-[55%] py-3"/>
+                <Button value="Porozmawiajmy" href="/kontakt" scroll={true} styles="md:w-[25%] w-[55%] py-3"/>
             </section>
         </article>
     );

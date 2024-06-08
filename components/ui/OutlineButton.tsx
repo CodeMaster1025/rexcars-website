@@ -5,14 +5,15 @@ type buttonProps = {
     value: string;
     href: string;
     styles?: string;
+    scroll?: boolean;
 };
 
-export default function Button({ value, href, styles }: buttonProps) {
+export default function Button({ value, href, styles, scroll }: buttonProps) {
     // Check if the component needs additional styling
     const stylesToAppend = styles ? ' ' + styles : '';
 
     return (
-        <Link href={href}>
+        <Link href={href} scroll={scroll}>
             <button
                 className={
                     'flex flex-row group justify-center items-center font-semibold text-blue-primary border-2 border-blue-primary ho bg-transparent shadow-lg rounded-lg hover:bg-blue-primary hover:text-slate-800 ease-in-out duration-300' +

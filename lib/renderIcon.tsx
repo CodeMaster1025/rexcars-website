@@ -7,7 +7,8 @@ export enum carSpecyficationIcon {
     ENGINE,
     TRANSMISSION,
     DRIVETRAIN,
-    PEOPLE,
+    SEATS,
+    TBI,
 }
 
 export type renderIconArgs = {
@@ -70,7 +71,7 @@ export const renderIcon = ({
             }
             break;
 
-        case carSpecyficationIcon.PEOPLE:
+        case carSpecyficationIcon.SEATS:
             if (size !== undefined && color !== undefined) {
                 iconToRender = (
                     <UsersIcon className={`size-${size} text-${color}`} />

@@ -1,6 +1,6 @@
 export type priceChartAddonEntry = {
     addonName: string;
-    price: string;
+    price: number;
 };
 
 export default function PriceChartEntry({

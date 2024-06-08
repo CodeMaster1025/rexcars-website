@@ -6,65 +6,61 @@ import {
     ArrowLongRightIcon,
     ChevronDoubleDownIcon,
 } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import Button from '@/components/ui/Button';
+import {  motion } from 'framer-motion';
 import Link from 'next/link';
 import { carSpecyficationIcon, renderIcon } from '@/lib/renderIcon';
+import { TechnicalSpecEntry } from '@/types/Car';
 
-export default function CarSpecyficationCardWrapper() {
+export default function CarSpecyficationCardWrapper({
+    technicalSpecArray,
+    url,
+    price
+}: {
+    technicalSpecArray: TechnicalSpecEntry[];
+    url: string;
+    price: number;
+}) {
     // Track the state of car specyfication bar
     const [unwinded, setUnwinded] = useState(false);
 
     return (
         <motion.section
-            layout='position'
-            className='flex flex-col md:w-[80%] w-full items-center'
+            className='flex flex-col md:w-[80%] w-full items-center mx-auto'
+            layout="position"
             transition={{
                 layout: { duration: 0.6 },
                 type: 'spring',
                 stiffness: 90,
             }}
         >
-            {unwinded && (
-                <motion.section
-                    layout='position'
-                    transition={{ layout: { duration: 0.6 } }}
-                    className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
-                        unwinded ? 'py-8' : ''
-                    }`}
-                >
-                    <CarSpecyficationCard
-                        icon={renderIcon({
-                            iconType: carSpecyficationIcon.ENGINE,
-                            width: 80,
-                            height: 100,
+                {unwinded && (
+                    <motion.section
+                        layout="position"
+                        className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
+                            unwinded ? 'py-8' : ''
+                        }`}
+                        transition={{ layout: { duration: 0.6 } }}
+
+                    >
+                        {technicalSpecArray.map((technicalSpecEntry, index) => {
+                            return (
+                                <CarSpecyficationCard
+                                    key={url + index}
+                                    icon={renderIcon({
+                                        iconType:
+                                            carSpecyficationIcon[
+                                                technicalSpecEntry.specType.toUpperCase() as keyof typeof carSpecyficationIcon
+                                            ],
+                                        width: 64,
+                                        height: 64,
+                                    })}
+                                    heading={technicalSpecEntry.heading}
+                                    secondaryText={technicalSpecEntry.content}
+                                />
+                            );
                         })}
-                        heading='2.0l R4 Turbo'
-                        secondaryText='350KM / 450Nm'
-                        active={unwinded}
-                    />
-                    <CarSpecyficationCard
-                        icon={renderIcon({
-                            iconType: carSpecyficationIcon.TRANSMISSION,
-                            width: 80,
-                            height: 100,
-                        })}
-                        heading='7-biegowa automatyczna'
-                        secondaryText='Dwusprzęgłowa DSG'
-                        active={unwinded}
-                    />
-                    <CarSpecyficationCard
-                        icon={renderIcon({
-                            iconType: carSpecyficationIcon.DRIVETRAIN,
-                            width: 80,
-                            height: 100,
-                        })}
-                        heading='Napęd 4Motion'
-                        secondaryText='Sportowy mechanizm różnicowy'
-                        active={unwinded}
-                    />
-                </motion.section>
-            )}
+                    </motion.section>
+                )}
             <motion.div
                 layout='position'
                 className='flex group mx-auto cursor-pointer w-full justify-center items-center bg-blue-secondary'
@@ -103,9 +99,9 @@ export default function CarSpecyficationCardWrapper() {
                     transition: { duration: 0.3 },
                 }}
             >
-                <Link href={'/oferta/wynajem-golf-8-r'}>
+                <Link href={`/oferta/${url}`}>
                     <button className='flex flex-row group md:text-2xl text-xl md:py-4 py-2 justify-center w-full items-center font-semibold text-neutral-200 bg-transparent shadow-lg active:scale-[0.9]'>
-                        Już od 650zł
+                        Już od {price}zł
                         <ArrowLongRightIcon className='text-neutral-200 size-8 ml-3 stroke-2 ease-in-out duration-300 translate-x-1 group-hover:rotate-[-45deg]' />
                     </button>
                 </Link>

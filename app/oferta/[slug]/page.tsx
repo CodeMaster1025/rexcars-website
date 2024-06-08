@@ -1,12 +1,31 @@
-import CarDescriptionSection from '@/components/sections/oferta/wynajem-golf-8-r/car-description/CarDescriptionSection';
-import CarSpecyficationSection from '@/components/sections/oferta/wynajem-golf-8-r/car-specyfication/CarSpecyficationSection';
-import FAQSection from '@/components/sections/oferta/wynajem-golf-8-r/faq-section/FAQSection';
-import PriceChart from '@/components/sections/oferta/wynajem-golf-8-r/price-chart/PriceChart';
+import CarDescriptionSection from '@/components/sections/oferta/car-description/CarDescriptionSection';
+import CarSpecyficationSection from '@/components/sections/oferta/car-specyfication/CarSpecyficationSection';
+import FAQSection from '@/components/sections/oferta/faq-section/FAQSection';
+import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
+import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData } from '@/data/fetchPagePayload';
+import { ICarDescriptionData } from '@/types/pagePayload';
 import Head from 'next/head';
+import { notFound } from 'next/navigation';
 
-export default function PageGolf8R() {
+export default async function CarPage({ params }: { params: { slug: string } }) {
+    const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData] = await Promise.all([
+        fetchPageHeaderPayload(params.slug),
+        fetchPriceChartData(params.slug),
+        fetchSpecyficationCardData(params.slug),
+        fetchPageContentData(params.slug),
+        fetchPageFAQData(),
+    ]);
+
+    if (!headerData || !priceChartData) notFound();
+
+    const pageDescriptionPayload: ICarDescriptionData = {
+        bottomContent: pageDescriptionData,
+        header: headerData
+    };
+
     return (
         <>
+            {/* TODO: FIX METADATA GENERATION */}
             <Head>
                 {/* Standard tags */}
                 <title key={"pageTitle"}>Wynajem Volkswagen Golf 8R | RexCars</title>
@@ -59,8 +78,7 @@ export default function PageGolf8R() {
 
             <header className='flex flex-col md:mt-[4%] md:mb-[2%] my-[10%]'>
                 <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold w-full'>
-                    Wynajem <span className='text-neutral-400'>Volkswagen</span>{' '}
-                    Golf <span className='text-blue-primary'>8R</span>
+                    Wynajem {headerData.carMake} <span className='text-blue-primary'>{headerData.carModel}</span>
                 </h1>
             </header>
 
@@ -69,14 +87,14 @@ export default function PageGolf8R() {
                     <section className='flex lg:basis-9/12 md:basis-8/12 bg-neutral-900 rounded-lg px-2'>
                         <h1>Im here</h1>
                     </section>
-                    <PriceChart />
+                    <PriceChart entries={priceChartData}/>
                 </article>
 
-                <CarSpecyficationSection />
+                <CarSpecyficationSection technicalSpec={technicalSpecData}/>
 
-                <CarDescriptionSection />
+                <CarDescriptionSection header={pageDescriptionPayload.header} bottomContent={pageDescriptionPayload.bottomContent}/>
 
-                <FAQSection />
+                <FAQSection entries={faqSectionData}/>
             </main>
         </>
     );

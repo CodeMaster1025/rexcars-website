@@ -1,10 +1,19 @@
-"use client";
-import {motion} from 'framer-motion';
+import fetchCarsSectionData from '@/data/fetchCarsSectionData';
+import CarCard from './CarCard';
 
-export default function CarSectionWrapper({children}: {children: React.ReactNode}) {
+export default async function CarsSection() {
+    const cars = await fetchCarsSectionData();
+
     return (
-        <motion.section layout transition={{duration: 1}} className='flex flex-col mt-10 bg-neutral-950 rounded-md items-center pb-[5%]'>
-            {children}
-        </motion.section>
+        <section className='flex flex-col lg:flex-row  mt-10 bg-neutral-950 rounded-md pb-[5%]'>
+            {cars?.map((car) => {
+                return (
+                    <CarCard
+                        key={car.key}
+                        car={car}
+                    />
+                );
+            })}
+        </section>
     );
 }

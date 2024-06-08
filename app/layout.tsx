@@ -5,6 +5,7 @@ import Navbar from '@/components/sections/nav/Navbar';
 import Footer from '@/components/sections/footer/Footer';
 import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import CookiesConsentBanner from '@/components/ui/cookiesConsent/CookiesConsentBanner';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -35,9 +36,10 @@ export default function RootLayout({
                 <IsElementOutOfViewProvider>
                     <Navbar />
                     {children}
+                    <CookiesConsentBanner />
                     <Footer />
                 </IsElementOutOfViewProvider>
-
+                <div id='overlay'></div>
                 <SpeedInsights />
             </body>
         </html>

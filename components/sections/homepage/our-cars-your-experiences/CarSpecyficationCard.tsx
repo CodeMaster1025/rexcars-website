@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
 type carSpecyficationCardProps = {
-    active: boolean;
     icon: JSX.Element | null;
     heading: string;
     secondaryText: string;
@@ -11,7 +10,6 @@ export default function CarSpecyficationCard({
     icon,
     heading,
     secondaryText,
-    active,
 }: carSpecyficationCardProps) {
 
     return (
@@ -34,11 +32,11 @@ export default function CarSpecyficationCard({
             >
                 <motion.h4
                     layout='position'
-                    className='text-neutral-200 font-semibold text-xl text-center'
+                    className='text-neutral-200 font-semibold text-base text-center'
                 >
                     {heading}
                 </motion.h4>
-                <motion.p className='text-neutral-400 text-lg text-center'>
+                <motion.p className='text-neutral-400 text-sm text-center'>
                     {secondaryText}
                 </motion.p>
             </motion.section>

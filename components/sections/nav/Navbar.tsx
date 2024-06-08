@@ -2,20 +2,27 @@ import '@/app/globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavbarItemList from './NavbarItemList';
+import Modal from '@/components/ui/modal/Modal';
+import MobileNavbarItemList from './MobileNavbarItemList';
 
 export default function Navbar() {
     return (
-        <nav className='md:flex hidden flex-row items-center justify-between py-0 px-[10%] w-full mx-auto bg-black md:sticky md:top-0 z-50'>
+        <nav className='flex flex-row items-center justify-between py-0 px-[10%] w-full mx-auto bg-black sticky top-0 z-40'>
             <Link href={'/'}>
                 <Image
                     src={'/REX_CARS_LOGO-BIALEpoziom_beztla.png'}
                     alt='RexCars Logo'
-                    width={200}
+                    style={{
+                        width: "auto"
+                    }}
+                    width={150}
                     height={48}
                     priority={true}
                 />
             </Link>
             <NavbarItemList />
+            <MobileNavbarItemList />
+            <Modal />
         </nav>
     );
 }
