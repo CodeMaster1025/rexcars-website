@@ -4,6 +4,7 @@ import Link from 'next/link';
 import NavbarItemList from './NavbarItemList';
 import Modal from '@/components/ui/modal/Modal';
 import MobileNavbarItemList from './MobileNavbarItemList';
+import { Suspense } from 'react';
 
 export default function Navbar() {
     return (
@@ -22,7 +23,9 @@ export default function Navbar() {
             </Link>
             <NavbarItemList />
             <MobileNavbarItemList />
-            <Modal />
+            <Suspense>
+                <Modal />
+            </Suspense>
         </nav>
     );
 }
