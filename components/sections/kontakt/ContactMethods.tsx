@@ -12,7 +12,7 @@ export default function ContactMethods() {
             <div className='flex md:flex-row flex-col md:w-full pt-2 pb-8 px-6 md:justify-between'>
                 <ContactMethodEntry>
                     <PhoneIcon className='text-blue-primary size-9' />
-                    <Link href='callto:+48 534 668 001'>
+                    <Link href='tel:+48534668001'>
                         <h3 className='text-neutral-100 text-lg ml-4 group-hover:text-blue-primary ease-in-out duration-300'>
                             +48 534 668 001
                         </h3>

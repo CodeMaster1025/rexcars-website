@@ -54,7 +54,7 @@ export default function Modal() {
 
                                 <ModalContactMethodEntry>
                                     <PhoneIcon className='size-12 text-blue-primary' />
-                                    <Link href={'callto:+48 534 668 001'}>
+                                    <Link href={'tel:+48534668001'}>
                                         <ModalContactMethodEntryHeading value='+48 534 668 001'/>
                                     </Link>
                                 </ModalContactMethodEntry>
