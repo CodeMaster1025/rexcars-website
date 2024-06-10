@@ -31,11 +31,7 @@ export default function CookiesConsentBanner() {
                     Dbamy o twoją prywatność
                 </h2>
                 <p className='text-center pb-2 pt-4 px-8 text-base justify-center text-neutral-200'>
-                    Korzystamy z plików Cookies, w celu zapewnienia naszym
-                    użytkownikom najlepszych odczuć z korzystania z naszej
-                    strony, oraz do analizy ruchu na naszej stronie. Klikając
-                    przycisk &quot;Zgadzam się&quot;, zgadzasz się na gromadzenie przez
-                    nas plików Cookies.
+                Używamy plików cookies, aby zapewnić naszym użytkownikom jak najlepsze doświadczenia z korzystania z naszej strony oraz do analizy ruchu na niej. Klikając przycisk &quot;Zgadzam się&quot;, wyrażasz zgodę na zbieranie przez nas plików cookies.
                 </p>
                 <Link href={'/polityka-prywatnosci'}>
                     <p className='text-center text-lg text-blue-primary'>

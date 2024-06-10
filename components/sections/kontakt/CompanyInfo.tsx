@@ -2,7 +2,7 @@ import { MapPinIcon } from "@heroicons/react/24/outline";
 
 export default function CompanyInfo() {
     return (
-        <section className="flex flex-col md:w-[60%] w-[90%] mx-auto bg-neutral-800 mt-[130px] rounded-2xl pb-4">
+        <section className="flex flex-col md:w-[60%] w-[90%] mx-auto bg-neutral-800/70 mt-[130px] rounded-2xl pb-4">
             <h2 className='text-left text-neutral-100 font-extralight md:text-4xl text-3xl py-4 px-4'>
                 DANE ADRESOWE FIRMY
             </h2>

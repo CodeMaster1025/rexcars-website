@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function ContactMethods() {
     return (
-        <section className='flex flex-col md:w-[80%] w-[90%] mx-auto bg-neutral-800 rounded-2xl mt-[130px]'>
+        <section className='flex flex-col md:w-[80%] w-[90%] mx-auto bg-neutral-800/70 rounded-2xl mt-[130px]'>
             <h2 className='text-left text-neutral-100 font-extralight md:text-4xl text-3xl py-4 px-4'>
                 INNE MOŻLIWOŚCI KONTAKTU
             </h2>
