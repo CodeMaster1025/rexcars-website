@@ -12,3 +12,8 @@
 .Typewriter__wrapper {
   @apply md:text-6xl text-3xl text-blue-primary md:pl-4 pl-2 font-semibold
 }
+
+.embla__container {
+  flex: 0 0 100%;
+  min-width: 0;
+}

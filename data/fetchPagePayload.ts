@@ -1,6 +1,6 @@
 import { sanityClient } from "@/lib/sanity";
 import { TechnicalSpecEntry } from "@/types/Car";
-import { ICarDescriptionPayload, IFAQEntryPayload, IPageContent, IPageHeaderPayload } from "@/types/pagePayload";
+import { ICarDescriptionPayload, IFAQEntryPayload, IImagesData, IPageContent, IPageHeaderPayload } from "@/types/pagePayload";
 import { IPriceChartEntry } from "@/types/priceChart";
 import { notFound } from "next/navigation";
 
@@ -109,5 +109,24 @@ export async function fetchPageFAQData() {
         
         console.error(err);
         throw new Error(`Error while fetching Page FAQ Section data.`)
+    }
+}
+
+export async function fetchPageImagesData(url: string) {
+    const query = `
+    *[slug.current == "${url}"][0] {
+        images[] {
+          "key": _key,
+          "url": asset->url,
+        }
+      }
+    `;
+
+    try {
+        const data = await sanityClient.fetch(query);
+        return data as IImagesData;
+    } catch (err) {
+        console.log(`An error occured while fetching Images data for ${url}.`);
+        throw new Error("Error while fetching Images data.");
     }
 }

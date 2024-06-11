@@ -35,5 +35,14 @@ export type IFAQSectionData = {
     entries: IFAQEntryPayload[];
 }
 
+export type IImage = {
+    key: string,
+    url: string,
+}
+
+export type IImagesData = {
+    images: IImage[]
+}
+
 
 

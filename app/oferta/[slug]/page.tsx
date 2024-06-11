@@ -1,19 +1,21 @@
 import CarDescriptionSection from '@/components/sections/oferta/car-description/CarDescriptionSection';
 import CarSpecyficationSection from '@/components/sections/oferta/car-specyfication/CarSpecyficationSection';
 import FAQSection from '@/components/sections/oferta/faq-section/FAQSection';
+import ImagesGallery from '@/components/sections/oferta/image-gallery/ImagesGallery';
 import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
-import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData } from '@/data/fetchPagePayload';
+import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData } from '@/data/fetchPagePayload';
 import { ICarDescriptionData } from '@/types/pagePayload';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 export default async function CarPage({ params }: { params: { slug: string } }) {
-    const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData] = await Promise.all([
+    const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([
         fetchPageHeaderPayload(params.slug),
         fetchPriceChartData(params.slug),
         fetchSpecyficationCardData(params.slug),
         fetchPageContentData(params.slug),
         fetchPageFAQData(),
+        fetchPageImagesData(params.slug),
     ]);
 
     if (!headerData || !priceChartData) notFound();
@@ -83,9 +85,9 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
             </header>
 
             <main className='flex flex-col md:w-[80%] w-[90%] mx-auto'>
-                <article className='flex md:flex-row flex-col'>
-                    <section className='flex lg:basis-9/12 md:basis-8/12 bg-neutral-900 rounded-lg px-2'>
-                        <h1>Im here</h1>
+                <article className='flex lg:flex-row flex-col'>
+                    <section className='flex lg:basis-9/12 mb-10 md:mb-0 bg-neutral-900 rounded-lg px-2'>
+                        <ImagesGallery images={imagesData}/>
                     </section>
                     <PriceChart entries={priceChartData}/>
                 </article>
