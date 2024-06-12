@@ -4,7 +4,23 @@ import { ICarDescriptionPayload, IFAQEntryPayload, IImagesData, IPageContent, IP
 import { IPriceChartEntry } from "@/types/priceChart";
 import { notFound } from "next/navigation";
 
+export async function fetchAllPageSlugs() {
+    const query = `
+        *[_type == "car"] {
+            "slug": slug.current
+        }
+    `;
+    try {
+        const data = await sanityClient.fetch(query);
+        return data.map((page: any) => page.slug) as string[];
+    } catch (err) {
+        console.error(err);
+        throw new Error("Error while fetching all page slugs.");
+    }
+}
+
 export async function fetchPageHeaderPayload(url: string) {
+    console.log("FETCHNING PAGE PAYLOAD");
     const query = `
         *[slug.current == "${url}"] {
             carMake,

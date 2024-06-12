@@ -3,12 +3,13 @@ import CarSpecyficationSection from '@/components/sections/oferta/car-specyficat
 import FAQSection from '@/components/sections/oferta/faq-section/FAQSection';
 import ImagesGallery from '@/components/sections/oferta/image-gallery/ImagesGallery';
 import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
-import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData } from '@/data/fetchPagePayload';
+import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData, fetchAllPageSlugs } from '@/data/fetchPagePayload';
 import { ICarDescriptionData } from '@/types/pagePayload';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 export default async function CarPage({ params }: { params: { slug: string } }) {
+    console.log("PAGE COMPONENT")
     const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([
         fetchPageHeaderPayload(params.slug),
         fetchPriceChartData(params.slug),
@@ -100,4 +101,19 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
             </main>
         </>
     );
+}
+
+
+export async function generateStaticParams() {
+    console.log("GENERATE STATIC PARAMS")
+
+    // Fetch the slugs for all the pages
+    const slugs = await fetchAllPageSlugs();
+
+    // Generate the static params for each slug
+    const staticParams = slugs.map((slug) => ({
+        params: { slug },
+    }));
+
+    return staticParams;
 }
