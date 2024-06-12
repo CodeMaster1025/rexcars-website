@@ -5,12 +5,20 @@ import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/react/2
 import { Suspense, useCallback, useState } from 'react';
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import 'yet-another-react-lightbox/styles.css';
 
 export default function ImagesGallery({ images }: { images: IImagesData }) {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const emblaOptions = {
+        loop: true,
+    }
+
+    const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [
+        Autoplay({ playOnInit: true, delay: 3500, stopOnMouseEnter: true }),
+    ]);
+    
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
 
