@@ -2,7 +2,8 @@
 
 import { IImagesData } from '@/types/pagePayload';
 import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useCallback, useState } from 'react';
+import { Suspense, useCallback, useState } from 'react';
+import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -46,7 +47,7 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
     });
 
     return (
-        <div className='relative flex items-center overflow-hidden embla'>
+        <div className='relative flex items-center overflow-hidden min-h-full embla'>
             <div
                 className='embla__viewport'
                 ref={emblaRef}
@@ -54,17 +55,21 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                 <div className='flex embla__container rounded-lg'>
                     {images.images.map(({ key, url }, index) => {
                         return (
-                            <img
-                                src={`${url}?h=750`}
-                                alt='RexCars car available for rent image'
-                                className='object-cover embla__slide rounded-lg'
-                                key={key}
-                                sizes='(max-width: 450px) 410px, (max-width: 1023px) 620px, (max-width: 1441px) 980px, 1330px'
-                                srcSet={`${url}?h=230 410w, ${url}?h=350 620w, ${url}?h=550 980w, ${url}?h=750 1330w`}
-                                onClick={() => {
-                                    setIsLightboxOpen(true);
-                                }}
-                            />
+                                <Image
+                                    src={`${url}?h=750`}
+                                    width={1330}
+                                    height={400}
+                                    priority={index === 0 ? true : false}
+                                    key={key}
+                                    quality={100}
+                                    alt='RexCars car available for rent image'
+                                    className='embla__slide object-cover rounded-lg h-[180px] min-[370px]:h-[230px] min-[475px]:h-[270px] min-[555px]:h-[350px] md:h-[420px] lg:h-[450px] xl:h-[550px] 2xl:h-[700px]'
+                                    sizes='(max-width: 1024px) 100vw, 67vw'
+                                    // srcSet={`${url}?h=230 410w, ${url}?h=350 620w, ${url}?h=550 980w, ${url}?h=750 1330w`}
+                                    onClick={() => {
+                                        setIsLightboxOpen(true);
+                                    }}
+                                />
                         );
                     })}
                 </div>
@@ -74,7 +79,7 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                     className='h-full bg-neutral-900/50 px-1'
                     onClick={scrollPrev}
                 >
-                    <ChevronLeftIcon className='text-blue-primary size-10 stroke-2' />
+                    <ChevronLeftIcon className='text-blue-primary size-10 stroke-2 transition-transform ease-in-out duration-200 hover:scale-125 active:scale-95' />
                 </button>
             </div>
             <div className='md:flex hidden absolute h-full right-0 items-center z-10'>
@@ -82,9 +87,10 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                     className='h-full bg-neutral-900/50 px-1'
                     onClick={scrollNext}
                 >
-                    <ChevronRightIcon className='text-blue-primary size-10 stroke-2' />
+                    <ChevronRightIcon className='text-blue-primary size-10 stroke-2 transition-transform ease-in-out duration-200 hover:scale-125 active:scale-95' />
                 </button>
             </div>
+            <Suspense>
             <Lightbox
                 open={isLightboxOpen}
                 index={getCurrentIndex()}
@@ -110,6 +116,7 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                     iconClose: () => <XMarkIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
                 }}
             />
+            </Suspense>
         </div>
     );
 }

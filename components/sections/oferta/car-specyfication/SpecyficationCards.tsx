@@ -31,7 +31,6 @@ export default async function SpecyficationCards({ technicalSpec }: ISpecyficati
             {/* SECOND ROW */}
             <section className='flex lg:flex-row flex-col w-full md:justify-between'>
                 {technicalSpec.map(({ key, heading, content, specType }, index) => {
-                    console.log(specType)
                     if (index > 2) {
                         
                         if (specType === "ACCELERATION") {
