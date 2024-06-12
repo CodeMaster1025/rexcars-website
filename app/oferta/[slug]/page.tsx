@@ -8,6 +8,8 @@ import { ICarDescriptionData } from '@/types/pagePayload';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
+export const revalidate = 3600 // revalidate at most every hour
+
 export default async function CarPage({ params }: { params: { slug: string } }) {
     console.log("PAGE COMPONENT")
     const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([

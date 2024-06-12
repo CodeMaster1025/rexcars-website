@@ -2,7 +2,6 @@ import { sanityClient } from "@/lib/sanity";
 import { TechnicalSpecEntry } from "@/types/Car";
 import { ICarDescriptionPayload, IFAQEntryPayload, IImagesData, IPageContent, IPageHeaderPayload } from "@/types/pagePayload";
 import { IPriceChartEntry } from "@/types/priceChart";
-import { notFound } from "next/navigation";
 
 export async function fetchAllPageSlugs() {
     const query = `
