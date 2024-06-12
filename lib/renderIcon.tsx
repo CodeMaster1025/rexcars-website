@@ -1,4 +1,5 @@
 import EngineIcon from '@/components/icons/EngineIcon';
+import SpeedIcon from '@/components/icons/SpeedIcon';
 import TransmissionIcon from '@/components/icons/TransmissionIcon';
 import WheelIcon from '@/components/icons/WheelIcon';
 import { UsersIcon } from '@heroicons/react/24/outline';
@@ -8,7 +9,7 @@ export enum carSpecyficationIcon {
     TRANSMISSION,
     DRIVETRAIN,
     SEATS,
-    TBI,
+    ACCELERATION,
 }
 
 export type renderIconArgs = {
@@ -81,7 +82,18 @@ export const renderIcon = ({
                 console.error('Wrong arguments for this icon type.');
             }
             break;
-
+        
+        case carSpecyficationIcon.ACCELERATION:
+            if (size !== undefined && color !== undefined) {
+                iconToRender = (
+                    <SpeedIcon styles={`size-${size} fill-${color}`} />
+                )
+            } else {
+                iconToRender = null;
+                console.error('Wrong arguments for this icon type.');
+            }
+            break;
+        
         default:
             iconToRender = null;
             break;

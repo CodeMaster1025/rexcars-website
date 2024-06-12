@@ -105,9 +105,9 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                 }}
                 render={{
                     buttonZoom: () => null,
-                    iconPrev: () => <ChevronLeftIcon className='text-blue-primary size-8 md:size-10 md:stroke-2' />,
-                    iconNext: () => <ChevronRightIcon className='text-blue-primary size-8 md:size-10 md:stroke-2' />,
-                    iconClose: () => <XMarkIcon className='text-blue-primary size-8 md:size-10 md:stroke-2' />,
+                    iconPrev: () => <ChevronLeftIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
+                    iconNext: () => <ChevronRightIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
+                    iconClose: () => <XMarkIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
                 }}
             />
         </div>

@@ -31,21 +31,24 @@ export default async function SpecyficationCards({ technicalSpec }: ISpecyficati
             {/* SECOND ROW */}
             <section className='flex lg:flex-row flex-col w-full md:justify-between'>
                 {technicalSpec.map(({ key, heading, content, specType }, index) => {
+                    console.log(specType)
                     if (index > 2) {
-                        if (specType !== "seats") {
-                            return <SpecyficationCard icon={renderIcon({
-                                iconType: carSpecyficationIcon[
-                                    specType.toUpperCase() as keyof typeof carSpecyficationIcon
-                                ],
-                                width: 100,
-                                height: 100
-                            })}
-                            heading={heading}
-                            content={content}
-                            key={key}
-                            className='flex md:flex-row flex-col items-center md:basis-2/4 justify-center rounded-lg md:px-4 py-4 ease-in-out duration-300 hover:bg-neutral-800'
+                        
+                        if (specType === "ACCELERATION") {
+                            return (
+                                <SpecyficationCard icon={renderIcon({
+                                    iconType: carSpecyficationIcon.ACCELERATION,
+                                    color: "blue-primary",
+                                    size: 24,
+                                })}
+                                heading={heading}
+                                content={content}
+                                key={key}
+                                className='flex md:flex-row flex-col items-center md:basis-2/4 justify-center rounded-lg md:px-4 py-4 ease-in-out duration-300 hover:bg-neutral-800'
                             />
-                        } else {
+                            )
+                        }
+                        else {
                             return <SpecyficationCard icon={<UsersIcon className='size-24 text-blue-primary'/>}
                             heading={heading}
                             content={content}

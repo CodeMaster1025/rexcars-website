@@ -85,7 +85,7 @@ export default function MobileNavbarItemList() {
     return (
         <div className='flex lg:hidden'>
             <Bars3Icon
-                className='text-neutral-200 size-8'
+                className={`${isOpen ? "text-blue-primary" : "text-neutral-200"} size-8 transition-colors ease-in-out duration-200`}
                 onClick={() => setIsOpen(!isOpen)}
             />
             <AnimatePresence>

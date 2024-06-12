@@ -60,7 +60,7 @@ export const car = defineType({
                   {title: 'Skrzynia', value: 'TRANSMISSION'},
                   {title: 'Napęd', value: 'DRIVETRAIN'},
                   {title: 'Miejsca', value: 'SEATS'},
-                  {title: 'XXXX', value: 'TBI'},
+                  {title: '0-100', value: 'ACCELERATION'},
                 ],
               },
             },

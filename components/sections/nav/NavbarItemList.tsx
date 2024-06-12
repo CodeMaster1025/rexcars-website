@@ -18,7 +18,7 @@ export default function NavbarItemList() {
     const { isElementOutOfView } = useIsElementOutOfView();
 
     return (
-        <ul className='lg:flex hidden flex-row items-center text-blue-500 py-2 transition-all ease-in-out duration-500'>
+        <ul className='lg:flex hidden flex-row items-center lg:h-full py-2 text-blue-500 transition-all ease-in-out duration-500'>
             <NavbarItem
                 value='Strona Główna'
                 url='/'
