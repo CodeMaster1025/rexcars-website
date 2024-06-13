@@ -1,6 +1,5 @@
 import HowItWorks from "@/components/sections/voucher/HowItWorks";
 import VoucherHeader from "@/components/sections/voucher/VoucherHeader";
-import Link from "next/link";
 
 export default function VoucherPage() {
     return (
