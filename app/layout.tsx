@@ -9,7 +9,7 @@ import CookiesConsentBanner from '@/components/ui/cookiesConsent/CookiesConsentB
 
 const poppins = Poppins({
     subsets: ['latin'],
-    weight: ['200', '400', '500', '600'],
+    weight: ['200', '300', '400', '500', '600'],
     style: ['normal', 'italic'],
 });
 

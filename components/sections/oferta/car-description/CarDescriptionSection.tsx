@@ -14,8 +14,7 @@ export default function CarDescriptionSection({header, bottomContent}: ICarDescr
             })}
 
             <br />
-            <br />
-            <h3 className='text-blue-primary md:text-3xl font-semibold pb-2 text-center'>
+            <h3 className='text-blue-primary md:text-3xl text-xl font-semibold pb-2 text-center'>
                 {bottomContent.bottonHeading}
             </h3>
         </article>

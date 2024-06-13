@@ -73,7 +73,6 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                                     alt='RexCars car available for rent image'
                                     className='embla__slide object-cover rounded-lg h-[180px] min-[370px]:h-[230px] min-[475px]:h-[270px] min-[555px]:h-[350px] md:h-[420px] lg:h-[450px] xl:h-[550px] 2xl:h-[700px]'
                                     sizes='(max-width: 1024px) 100vw, 67vw'
-                                    // srcSet={`${url}?h=230 410w, ${url}?h=350 620w, ${url}?h=550 980w, ${url}?h=750 1330w`}
                                     onClick={() => {
                                         setIsLightboxOpen(true);
                                     }}
@@ -98,32 +97,33 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                     <ChevronRightIcon className='text-blue-primary size-10 stroke-2 transition-transform ease-in-out duration-200 hover:scale-125 active:scale-95' />
                 </button>
             </div>
+            
             <Suspense>
-            <Lightbox
-                open={isLightboxOpen}
-                index={getCurrentIndex()}
-                close={() => setIsLightboxOpen(false)}
-                slides={imgSlides}
-                controller={{
-                    closeOnPullDown: true,
-                    closeOnBackdropClick: true,
-                }}
-                plugins={[Zoom]}
-                zoom={{
-                    doubleClickMaxStops: 1
-                }}
-                on={{
-                    view: ({ index: currentIndex }) => {
-                        emblaJumpToIndex(currentIndex);
-                    },
-                }}
-                render={{
-                    buttonZoom: () => null,
-                    iconPrev: () => <ChevronLeftIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
-                    iconNext: () => <ChevronRightIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
-                    iconClose: () => <XMarkIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
-                }}
-            />
+                <Lightbox
+                    open={isLightboxOpen}
+                    index={getCurrentIndex()}
+                    close={() => setIsLightboxOpen(false)}
+                    slides={imgSlides}
+                    controller={{
+                        closeOnPullDown: true,
+                        closeOnBackdropClick: true,
+                    }}
+                    plugins={[Zoom]}
+                    zoom={{
+                        doubleClickMaxStops: 1
+                    }}
+                    on={{
+                        view: ({ index: currentIndex }) => {
+                            emblaJumpToIndex(currentIndex);
+                        },
+                    }}
+                    render={{
+                        buttonZoom: () => null,
+                        iconPrev: () => <ChevronLeftIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
+                        iconNext: () => <ChevronRightIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
+                        iconClose: () => <XMarkIcon className='text-blue-primary size-8 md:size-10 md:stroke-2 transition-all ease-in-out duration-300 hover:scale-125 active:scale-95' />,
+                    }}
+                />
             </Suspense>
         </div>
     );
