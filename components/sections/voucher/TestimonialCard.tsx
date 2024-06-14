@@ -21,7 +21,7 @@ export default function TestimonialCard({ content, rented_car, rating, customer,
                 {stars}
             </div>
 
-            <p className="text-neutral-200 md:text-lg text-base mt-4">{content}</p>
+            <p className="text-neutral-200 md:text-lg text-base font-semibold mt-4">{content}</p>
 
             <p className="text-neutral-400 md:text-lg text-base italic mt-4">Wypożyczony samochód: <span className="text-blue-primary font-normal">{rented_car}</span></p>
             </div>
