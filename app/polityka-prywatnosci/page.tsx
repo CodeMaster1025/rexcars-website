@@ -1,4 +1,19 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Polityka prywatności",
+    description: "Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych oraz ciasteczek, czyli tzw. cookies.",
+    robots: "index, follow",
+    openGraph: {
+        title: "Polityka prywatności | RexCars",
+        description: "Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych oraz ciasteczek, czyli tzw. cookies.",
+        type: "website",
+        siteName: "Wypożyczalnia samochodów sportowych | RexCars",
+        locale: "pl/PL"
+    }
+
+};
 
 export default function Page() {
     return (

@@ -14,7 +14,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: 'Wypożyczalnia samochodów sportowych | RexCars',
+    title: {
+        template: '%s | Wypożyczalnia samochodów sportowych RexCars',
+        default: 'Wypożyczalnia samochodów sportowych | RexCars',
+      },
     description:
         'Wypożyczalnia samochodów sportowych z dowozem na całą Polskę. Szeroka gama dostępnych aut sportowych na wynajem. Spełnij swoje motoryzacyjne marzenia już dziś!',
 };

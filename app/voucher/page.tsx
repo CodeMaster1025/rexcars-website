@@ -1,6 +1,20 @@
 import HowItWorks from "@/components/sections/voucher/HowItWorks";
 import VoucherHeader from "@/components/sections/voucher/VoucherHeader";
 import WhatOurCustomersThink from "@/components/sections/voucher/WhatOurCustomersThink";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Kup voucher",
+    description: "Kup bon podarunkowy na wypożyczenie samochodu sportowego. Podaruj wyjątkowy prezent swoim bliskim!",
+    robots: "index, follow",
+    openGraph: {
+        title: "Voucher | RexCars",
+        description: "Kup bon podarunkowy na wypożyczenie samochodu sportowego. Podaruj wyjątkowy prezent swoim bliskim!",
+        type: "website",
+        siteName: "Wypożyczalnia samochodów sportowych | RexCars",
+        locale: "pl/PL"
+    }
+};
 
 export default function VoucherPage() {
     return (

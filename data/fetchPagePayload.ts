@@ -1,7 +1,29 @@
 import { sanityClient } from "@/lib/sanity";
 import { TechnicalSpecEntry } from "@/types/Car";
-import { ICarDescriptionPayload, IFAQEntryPayload, IImagesData, IPageContent, IPageHeaderPayload } from "@/types/pagePayload";
+import { ICarDescriptionPayload, IFAQEntryPayload, IImagesData, IPageContent, IPageHeaderPayload, IPageMetadata } from "@/types/pagePayload";
 import { IPriceChartEntry } from "@/types/priceChart";
+
+export async function fetchMetadataPayload(url: string) {
+    const query = `
+        *[slug.current == "${url}"] {
+            carMake,
+            carModel,
+            images[0] {
+                "url": asset->url
+            }
+        }
+    `;
+
+    try {
+        const data = await sanityClient.fetch(query);
+        return data[0] as IPageMetadata;
+    
+    }
+    catch (err) {
+        console.error(err);
+        throw new Error("Error while fetching metadata payload.");
+    }
+}
 
 export async function fetchAllPageSlugs() {
     const query = `

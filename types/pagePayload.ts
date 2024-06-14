@@ -44,5 +44,11 @@ export type IImagesData = {
     images: IImage[]
 }
 
-
+export type IPageMetadata = {
+    carMake: string;
+    carModel: string;
+    images: {
+        url: string;
+    };
+}
 

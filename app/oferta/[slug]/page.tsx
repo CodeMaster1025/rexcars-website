@@ -3,12 +3,48 @@ import CarSpecyficationSection from '@/components/sections/oferta/car-specyficat
 import FAQSection from '@/components/sections/oferta/faq-section/FAQSection';
 import ImagesGallery from '@/components/sections/oferta/image-gallery/ImagesGallery';
 import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
-import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData, fetchAllPageSlugs } from '@/data/fetchPagePayload';
+import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData, fetchAllPageSlugs, fetchMetadataPayload } from '@/data/fetchPagePayload';
 import { ICarDescriptionData } from '@/types/pagePayload';
+import { Metadata } from 'next';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 3600 // revalidate at most every hour
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const data = await fetchMetadataPayload(params.slug);
+
+    if (!data) notFound();
+
+    const metadata: Metadata = {
+        title: `Wynajem ${data.carMake} ${data.carModel}`,
+        description: `${data.carMake} ${data.carModel} na wynajem w całej Polsce. Możliwość dowozu samochodu do klienta. Spełnij swoje motoryzacyjne marzenia już dziś i wynajmij sportowy samochód.`,
+        robots: "index, follow",
+        openGraph: {
+            title: `${data.carMake} ${data.carModel} dostępny na wynajem | Wypożyczalnia samochów sportowych RexCars`,
+            description: `Samochód sportowy ${data.carMake} ${data.carModel} na wynajem. Dowóz auta na całą Polskę.`,
+            type: "website",
+            siteName: `Wynajem ${data.carMake} ${data.carModel} | Wypożyczalnia samochodów sportowych RexCars`,
+            locale: "pl/PL",
+            images: [
+                {
+                    url: `${data.images.url}?h=450`,
+                    width: 800,
+                    height: 450,
+                    alt: `${data.carMake} ${data.carModel} na wynajem`
+                },
+                {
+                    url: `${data.images.url}?h=1080`,
+                    width: 1920,
+                    height: 1080,
+                    alt: `${data.carMake} ${data.carModel} na wynajem`
+                }
+            ]
+        }
+    };
+
+    return metadata;
+}
 
 export default async function CarPage({ params }: { params: { slug: string } }) {
     console.log("PAGE COMPONENT")

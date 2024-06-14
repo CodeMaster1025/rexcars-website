@@ -1,4 +1,19 @@
 import Button from "@/components/ui/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Nie znaleziono strony",
+    description: "Nie znaleziono strony, której szukasz. Sprawdź, czy adres URL jest poprawny.",
+    robots: "noindex, nofollow",
+    openGraph: {
+        title: "Nie znaleziono strony | RexCars",
+        description: "Nie znaleziono strony, której szukasz. Sprawdź, czy adres URL jest poprawny.",
+        type: "website",
+        siteName: "Wypożyczalnia samochodów sportowych | RexCars",
+        locale: "pl/PL"
+    }
+
+};
 
 export default function NotFound() {
     return (

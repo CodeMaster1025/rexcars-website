@@ -2,7 +2,22 @@ import CompanyInfo from "@/components/sections/kontakt/CompanyInfo";
 import ContactForm from "@/components/sections/kontakt/ContactForm";
 import ContactMethods from "@/components/sections/kontakt/ContactMethods";
 import Header from "@/components/sections/kontakt/Header";
+import { Metadata } from "next";
 import { Toaster } from 'sonner';
+
+export const metadata: Metadata = {
+    title: "Kontakt",
+    description: "Skontaktuj się z nami już dziś! Wypełnij formularz kontaktowy, skorzystaj z naszych danych kontaktowych lub odwiedź nas osobiście.",
+    robots: "index, follow",
+    openGraph: {
+        title: "Kontakt | RexCars",
+        description: "Skontaktuj się z nami już dziś! Wypełnij formularz kontaktowy, skorzystaj z naszych danych kontaktowych lub odwiedź nas osobiście.",
+        type: "website",
+        siteName: "Wypożyczalnia samochodów sportowych | RexCars",
+        locale: "pl/PL"
+    
+    }
+};
 
 export default function Page() {
     return (
