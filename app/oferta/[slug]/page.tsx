@@ -6,7 +6,6 @@ import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
 import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData, fetchAllPageSlugs, fetchMetadataPayload } from '@/data/fetchPagePayload';
 import { ICarDescriptionData } from '@/types/pagePayload';
 import { Metadata } from 'next';
-import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 3600 // revalidate at most every hour
@@ -21,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description: `${data.carMake} ${data.carModel} na wynajem w całej Polsce. Możliwość dowozu samochodu do klienta. Spełnij swoje motoryzacyjne marzenia już dziś i wynajmij sportowy samochód.`,
         robots: "index, follow",
         openGraph: {
-            title: `${data.carMake} ${data.carModel} dostępny na wynajem | Wypożyczalnia samochów sportowych RexCars`,
+            title: `${data.carMake} ${data.carModel} dostępny na wynajem | Wypożyczalnia samochodów sportowych RexCars`,
             description: `Samochód sportowy ${data.carMake} ${data.carModel} na wynajem. Dowóz auta na całą Polskę.`,
             type: "website",
             siteName: `Wynajem ${data.carMake} ${data.carModel} | Wypożyczalnia samochodów sportowych RexCars`,
@@ -47,7 +46,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function CarPage({ params }: { params: { slug: string } }) {
-    console.log("PAGE COMPONENT")
     const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([
         fetchPageHeaderPayload(params.slug),
         fetchPriceChartData(params.slug),
@@ -66,57 +64,6 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
 
     return (
         <>
-            {/* TODO: FIX METADATA GENERATION */}
-            <Head>
-                {/* Standard tags */}
-                <title key={"pageTitle"}>Wynajem Volkswagen Golf 8R | RexCars</title>
-                <meta
-                    key={"descriptionTag"}
-                    name='description'
-                    content='Volkswagen Golf 8R na wynajem w całej Polsce. Możliwość dowozu samochodu do klienta. Spełnij swoje motoryzacyjne marzenia już dziś i wynajmij sportowy samochód.'
-                />
-
-                <meta
-                    key={"viewportTag"}
-                    name='viewport'
-                    content='width=device-width, initial-scale=1.0'
-                />
-
-                {/* Robots */}
-                <meta
-                    key={"Robots"}
-                    name='robots'
-                    content='index, follow'
-                />
-
-                {/* OpenGraph */}
-                <meta
-                    key={"ogTitle"}
-                    name='og:title'
-                    content='Volkswagen Golf 8R dostępny na wynajem | Wypożyczalnia samochów sportowych RexCars'
-                />
-                <meta
-                    key={"ogDescription"}
-                    name='og:description'
-                    content='Samochód sportowy Volkswagen Golf 8R na wynajem. Dowóz auta na całą Polskę.'
-                />
-                <meta
-                    key={"ogType"}
-                    name='og:type'
-                    content='website'
-                />
-                <meta
-                    key={"ogSiteName"}
-                    name='og:site_name'
-                    content='Wypożyczalnia samochodów sportowych | RexCars'
-                />
-                <meta
-                    key={"ogLocale"}
-                    name='og:locale'
-                    content='pl/PL'
-                />
-            </Head>
-
             <header className='flex flex-col md:mt-[4%] md:mb-[2%] my-[10%]'>
                 <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold w-full'>
                     Wynajem {headerData.carMake} <span className='text-blue-primary'>{headerData.carModel}</span>
@@ -133,7 +80,7 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
 
                 <CarSpecyficationSection technicalSpec={technicalSpecData}/>
 
-                <CarDescriptionSection header={pageDescriptionPayload.header} bottomContent={pageDescriptionPayload.bottomContent}/>
+                <CarDescriptionSection { ...pageDescriptionPayload }/>
 
                 <FAQSection entries={faqSectionData}/>
             </main>
@@ -143,8 +90,6 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
 
 
 export async function generateStaticParams() {
-    console.log("GENERATE STATIC PARAMS")
-
     // Fetch the slugs for all the pages
     const slugs = await fetchAllPageSlugs();
 
