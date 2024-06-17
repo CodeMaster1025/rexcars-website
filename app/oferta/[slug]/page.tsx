@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             locale: "pl/PL",
             images: [
                 {
-                    url: `${data.images.url}?h=450`,
-                    width: 800,
-                    height: 450,
+                    url: `${data.images.url}?h=304`,
+                    width: 575,
+                    height: 304,
                     alt: `${data.carMake} ${data.carModel} na wynajem`
                 },
                 {
