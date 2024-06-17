@@ -36,7 +36,7 @@ export default function CarSpecyficationCardWrapper({
                 {unwinded && (
                     <motion.section
                         layout="position"
-                        className={`flex md:flex-row flex-col w-full mx-auto items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
+                        className={`flex md:flex-row flex-col w-full mx-auto md:min-h-[250px] items-center rounded-b-lg bg-neutral-900 px-2 transition-all ease-in-out duration-300 ${
                             unwinded ? 'py-8' : ''
                         }`}
                         transition={{ layout: { duration: 0.6 } }}

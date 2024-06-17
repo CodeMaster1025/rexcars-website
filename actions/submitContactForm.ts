@@ -24,7 +24,7 @@ export async function submitContactForm(formData: FormData) {
     try {
         const { data, error } = await resend.emails.send({
             from: "Powiadomienia RexCars <powiadomienia@updates.rexcars.pl>",
-            to: ["borun.gabriel@gmail.com"],
+            to: ["kontakt@rexcars.pl"],
             subject: "Masz nową wiadomość",
             react: ContactEmail(rawFormData)
         });

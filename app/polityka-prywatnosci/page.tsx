@@ -69,7 +69,7 @@ export default function Page() {
             </section>
 
             <section className="flex flex-col w-full mt-5">
-                <h3 className="text-3xl font-bold text-left my-4 text-neutral-200">3. Twoje prawa i dodatkowe informacje o sposobie wykorzystania danych</h3>
+                <h3 className="text-3xl font-bold text-left my-4 text-neutral-200">4. Twoje prawa i dodatkowe informacje o sposobie wykorzystania danych</h3>
                 <ul className="flex flex-col list-none">
                     <li className="text-neutral-200 text-lg py-0.5 px-3">1. W niektórych sytuacjach Administrator ma prawo przekazywać Twoje dane osobowe innym odbiorcom, jeśli będzie to niezbędne do wykonania zawartej z Tobą umowy lub do zrealizowania obowiązków ciążących na Administratorze. Dotyczy to takich grup odbiorców:</li>
                     <li className="text-neutral-200 text-lg py-0.5 px-6">a. firma hostingowa na zasadzie powierzenia</li>

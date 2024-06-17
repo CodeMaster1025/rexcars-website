@@ -1,5 +1,4 @@
 import RoundedButton from "@/components/ui/RoundedButton";
-import Link from "next/link";
 
 export default function VoucherHeader() {
     return (
