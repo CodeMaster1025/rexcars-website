@@ -17,9 +17,15 @@ export const metadata: Metadata = {
         locale: "pl/PL",
         images: [
             {
-                url: "https://cdn.sanity.io/images/pfrvgfvt/production/f5d944de5a4800c6a7b69848e7a9f8c04b4ac9c9-5732x3224.jpg?h=675",
-                width: 1200,
-                height: 675,
+                url: "https://cdn.sanity.io/images/pfrvgfvt/production/f5d944de5a4800c6a7b69848e7a9f8c04b4ac9c9-5732x3224.jpg?h=600",
+                width: 800,
+                height: 600,
+                alt: "Samochody sportowe dostępne do wynajęcia w wypożyczalni RexCars",
+            },
+            {
+                url: "https://cdn.sanity.io/images/pfrvgfvt/production/f5d944de5a4800c6a7b69848e7a9f8c04b4ac9c9-5732x3224.jpg?h=1080",
+                width: 1920,
+                height: 1080,
                 alt: "Samochody sportowe dostępne do wynajęcia w wypożyczalni RexCars",
             },
         ],
