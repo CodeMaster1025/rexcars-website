@@ -5,6 +5,7 @@ import Navbar from '@/components/sections/nav/Navbar';
 import Footer from '@/components/sections/footer/Footer';
 import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import CookiesConsentBanner from '@/components/ui/cookiesConsent/CookiesConsentBanner';
 
 const poppins = Poppins({
@@ -29,12 +30,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='pl'>
-            <head>
-                <link
-                    rel='icon'
-                    href='/favicon.ico'
-                />
-            </head>
             <body className={'bg-black ' + poppins.className + ' antialiased max-w-[100vw]'}>
                 <IsElementOutOfViewProvider>
                     <Navbar />
@@ -44,6 +39,7 @@ export default function RootLayout({
                 </IsElementOutOfViewProvider>
                 <div id='overlay'></div>
                 <SpeedInsights />
+                <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID as string} />
             </body>
         </html>
     );

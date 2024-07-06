@@ -6,6 +6,7 @@ import NavbarItem from './NavbarItem';
 import NavbarDivider from './NavbarDivider';
 import OutlineButton from '@/components/ui/OutlineButton';
 import { usePathname } from 'next/navigation';
+import {sendGAEvent} from "@next/third-parties/google";
 
 export default function NavbarItemList() {
     const pathname = usePathname();
@@ -42,7 +43,7 @@ export default function NavbarItemList() {
                 url='/kontakt'
                 active={currentPathname === '/kontakt'}
                 styles={
-                    isElementOutOfView === true || currentPathname !== '/'
+                    isElementOutOfView || currentPathname !== '/'
                         ? 'mr-6'
                         : ''
                 }

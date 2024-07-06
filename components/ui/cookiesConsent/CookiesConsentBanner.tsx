@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { sendGAEvent } from '@next/third-parties/google';
 
 export default function CookiesConsentBanner() {
     const [showBanner, setShowBanner] = useState(false);
@@ -11,16 +12,57 @@ export default function CookiesConsentBanner() {
 
         if (!consent) {
             setShowBanner(true);
+            sendGAEvent("consent", "default", {
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'wait_for_update': 500,
+            })
+        }
+
+        else {
+            if (consent === "true") {
+                sendGAEvent("consent", "update", {
+                    ad_user_data: 'granted',
+                    ad_personalization: 'granted',
+                    ad_storage: 'granted',
+                    analytics_storage: 'granted'
+                });
+            } else {
+                sendGAEvent("consent", "update", {
+                    ad_user_data: 'denied',
+                    ad_personalization: "denied",
+                    ad_storage: "denied",
+                    analytics_storage: "denied"
+                });
+            }
         }
     }, []);
 
     const handleAcceptCookies = () => {
         localStorage.setItem("cookiesConsent", "true");
+
+        sendGAEvent("consent", "update", {
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            ad_storage: 'granted',
+            analytics_storage: 'granted'
+        });
+
         setShowBanner(false);
     };
 
     const handleRejectCookies = () => {
         localStorage.setItem("cookiesConsent", "false");
+
+        sendGAEvent("consent", "update", {
+            ad_user_data: 'denied',
+            ad_personalization: "denied",
+            ad_storage: "denied",
+            analytics_storage: "denied"
+        });
+
         setShowBanner(false);
     };
 

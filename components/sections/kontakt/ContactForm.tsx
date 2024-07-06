@@ -2,11 +2,13 @@
 
 import { submitContactForm } from "@/actions/submitContactForm";
 import { toast } from "sonner";
+import {sendGAEvent} from "@next/third-parties/google";
 
 export default function ContactForm() {
 
     const processForm = () => {
-        toast.success("Wiadomość została wysłana!")
+        toast.success("Wiadomość została wysłana!");
+        sendGAEvent("event", "contact_form_sent");
     }
 
 
