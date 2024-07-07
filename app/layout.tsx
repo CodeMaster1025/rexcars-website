@@ -34,12 +34,14 @@ export default function RootLayout({
                 <IsElementOutOfViewProvider>
                     <Navbar />
                     {children}
-                    <CookiesConsentBanner />
                     <Footer />
                 </IsElementOutOfViewProvider>
+
+                <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID as string} />
+                <CookiesConsentBanner />
+
                 <div id='overlay'></div>
                 <SpeedInsights />
-                <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID as string} />
             </body>
         </html>
     );

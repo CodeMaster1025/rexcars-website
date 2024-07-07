@@ -12,6 +12,7 @@ export default function CookiesConsentBanner() {
 
         if (!consent) {
             setShowBanner(true);
+
             sendGAEvent("consent", "default", {
                 'ad_user_data': 'denied',
                 'ad_personalization': 'denied',
@@ -23,6 +24,7 @@ export default function CookiesConsentBanner() {
 
         else {
             if (consent === "true") {
+
                 sendGAEvent("consent", "update", {
                     ad_user_data: 'granted',
                     ad_personalization: 'granted',
@@ -30,6 +32,7 @@ export default function CookiesConsentBanner() {
                     analytics_storage: 'granted'
                 });
             } else {
+
                 sendGAEvent("consent", "update", {
                     ad_user_data: 'denied',
                     ad_personalization: "denied",
