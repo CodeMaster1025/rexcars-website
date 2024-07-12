@@ -22,7 +22,7 @@ export default async function AboutUs() {
                         width={400}
                     />
                 </figure>
-                <div className='md:text-2xl text-xl lg:pt-0 pt-6 text-neutral-200 text-center h-full my-auto justify-center items-center'>
+                <div className='xl:text-xl text-lg 2xl:text-2xl lg:pt-0 pt-6 text-neutral-200 text-center h-full my-auto justify-center items-center'>
                     <section className='w-[85%] mx-auto justify-center items-center mb-10'>
                         <span className='font-semibold'>Rex</span>
                         <span className='text-blue-primary font-semibold'>

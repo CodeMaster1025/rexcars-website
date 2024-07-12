@@ -9,7 +9,7 @@ export default function ContactMethods() {
             <h2 className='text-left text-neutral-100 font-extralight md:text-4xl text-3xl py-4 px-4'>
                 INNE MOŻLIWOŚCI KONTAKTU
             </h2>
-            <div className='flex md:flex-row flex-col md:w-full pt-2 pb-8 px-6 md:justify-between'>
+            <div className='flex lg:flex-row flex-col md:w-full pt-2 pb-8 px-6 md:justify-between'>
                 <ContactMethodEntry>
                     <PhoneIcon className='text-blue-primary size-9' />
                     <Link href='tel:+48534668001'>
