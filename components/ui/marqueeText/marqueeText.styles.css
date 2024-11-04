@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.marquee-text {
+    @apply overflow-clip bg-transparent;
+}
+
+.marquee-text-track {
+    @apply flex pl-[4.8rem] gap-[4.8rem] w-max bg-transparent;
+    animation: marquee-move-text 18s linear infinite forwards;
+}
+
+.marquee-text p {
+    @apply text-neutral-300 text-sm sm:text-base bg-transparent;
+}
+
+@keyframes marquee-move-text {
+    to {
+        transform: translateX(-50%);
+    }
+}
