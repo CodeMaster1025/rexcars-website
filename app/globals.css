@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth;
+:root {
+  --marquee-height: 0px;
+}
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased max-w-[100vw] overflow-x-hidden;
+  }
 }
 
 .Typewriter__wrapper {
@@ -16,4 +24,16 @@
 .embla__container {
   flex: 0 0 100%;
   min-width: 0;
+}
+
+@layer utilities {
+  .safe-marquee-top {
+    top: var(--navbar-height);
+  }
+}
+
+/* Ensure main content area grows properly */
+main {
+  @apply flex-grow;
+  min-height: calc(100vh - var(--marquee-height));
 }

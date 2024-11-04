@@ -7,6 +7,9 @@ import { IsElementOutOfViewProvider } from '@/context/IsElementOutOfViewContext'
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import CookiesConsentBanner from '@/components/ui/cookiesConsent/CookiesConsentBanner';
+import PopupModal from '@/components/ui/popupModal/PopupModal';
+import MarqueeText from '@/components/ui/marqueeText/MarqueeText';
+import { cn } from '@/lib/utils';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -30,17 +33,27 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='pl'>
-            <body className={'bg-black ' + poppins.className + ' antialiased max-w-[100vw]'}>
+            <body className={cn(
+                'bg-black',
+                poppins.className,
+                'min-h-screen',
+            )}>
                 <IsElementOutOfViewProvider>
-                    <Navbar />
-                    {children}
-                    <Footer />
+                        <Navbar />
+                        <MarqueeText 
+                    words={["Promocja!", "Nawet 40% taniej!", "3 dni w cenie 2!", "5 dni w cenie 3!", "7 dni w cenie 5!"]}
+                            ariaLabel="Announcement banner for RexCars"
+                        />
+                        <main className="flex-1">
+                            {children}
+                        </main>
+                        <Footer />
                 </IsElementOutOfViewProvider>
 
                 <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID as string} />
                 <CookiesConsentBanner />
-
                 <div id='overlay'></div>
+                <PopupModal />
                 <SpeedInsights />
             </body>
         </html>
