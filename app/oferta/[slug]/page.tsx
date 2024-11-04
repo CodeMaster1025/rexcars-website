@@ -3,15 +3,25 @@ import CarSpecyficationSection from '@/components/sections/oferta/car-specyficat
 import FAQSection from '@/components/sections/oferta/faq-section/FAQSection';
 import ImagesGallery from '@/components/sections/oferta/image-gallery/ImagesGallery';
 import PriceChart from '@/components/sections/oferta/price-chart/PriceChart';
-import { fetchPageHeaderPayload, fetchPriceChartData, fetchSpecyficationCardData, fetchPageContentData, fetchPageFAQData, fetchPageImagesData, fetchAllPageSlugs, fetchMetadataPayload } from '@/data/fetchPagePayload';
-import { ICarDescriptionData } from '@/types/pagePayload';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import {
+    fetchAllPageSlugs,
+    fetchMetadataPayload,
+    fetchPageContentData,
+    fetchPageFAQData,
+    fetchPageHeaderPayload,
+    fetchPageImagesData,
+    fetchPriceChartData,
+    fetchSpecyficationCardData
+} from '@/data/fetchPagePayload';
+import {ICarDescriptionData} from '@/types/pagePayload';
+import {Metadata} from 'next';
+import {notFound} from 'next/navigation';
 
 export const revalidate = 3600 // revalidate at most every hour
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const data = await fetchMetadataPayload(params.slug);
+    const paramsSlug = await params;
+    const data = await fetchMetadataPayload(paramsSlug.slug);
 
     if (!data) notFound();
 
@@ -46,13 +56,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function CarPage({ params }: { params: { slug: string } }) {
+    const { slug } = await params;
+
     const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([
-        fetchPageHeaderPayload(params.slug),
-        fetchPriceChartData(params.slug),
-        fetchSpecyficationCardData(params.slug),
-        fetchPageContentData(params.slug),
+        fetchPageHeaderPayload(slug),
+        fetchPriceChartData(slug),
+        fetchSpecyficationCardData(slug),
+        fetchPageContentData(slug),
         fetchPageFAQData(),
-        fetchPageImagesData(params.slug),
+        fetchPageImagesData(slug),
     ]);
 
     if (!headerData || !priceChartData) notFound();
@@ -94,9 +106,7 @@ export async function generateStaticParams() {
     const slugs = await fetchAllPageSlugs();
 
     // Generate the static params for each slug
-    const staticParams = slugs.map((slug) => ({
-        params: { slug },
+    return slugs.map((slug) => ({
+        params: {slug},
     }));
-
-    return staticParams;
 }
