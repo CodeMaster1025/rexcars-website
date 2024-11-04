@@ -1,7 +1,7 @@
 import ICar from "@/types/Car";
 import Link from "next/link";
 import Image from "next/image";
-import CarSpecyficationCardWrapper from "./CarSpecyficationCardWrapper";
+import CarSpecyficationCardWrapper from "./carSpecyficationCardWrapper/CarSpecyficationCardWrapper";
 
 export default function CarCard({ car }: { car: ICar }) {
     return (
