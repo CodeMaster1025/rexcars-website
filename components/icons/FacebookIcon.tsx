@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function FacebookIcon({ width, height }: iconProps) {
     return (
-        <figure>
+        <figure aria-label='Facebook'>
             <Link
                 href='https://www.facebook.com/profile.php?id=61558777172721'
                 rel='noopener norefferer'

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function InstagramIcon({ width, height, color }: iconProps) {
     return (
-        <figure>
+        <figure aria-label='Instagram'>
             <Link
                 href='https://www.instagram.com/rex_cars_wypozyczalnia'
                 rel='noopener norefferer'
