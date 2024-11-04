@@ -17,11 +17,18 @@ import {ICarDescriptionData} from '@/types/pagePayload';
 import {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 
-export const revalidate = 3600 // revalidate at most every hour
+export const revalidate = 3600; // revalidate at most every hour
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const paramsSlug = await params;
-    const data = await fetchMetadataPayload(paramsSlug.slug);
+type Params = Promise<{ slug: string }>
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
+
+export async function generateMetadata(props: {
+    params: Params,
+    searchParams: SearchParams
+}) {
+
+    const { slug } = await props.params;
+    const data = await fetchMetadataPayload(slug);
 
     if (!data) notFound();
 
@@ -55,8 +62,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return metadata;
 }
 
-export default async function CarPage({ params }: { params: { slug: string } }) {
-    const { slug } = await params;
+export default async function CarPage(props: {
+    params: Params,
+    searchParams: SearchParams
+}) {
+    const { slug } = await props.params;
 
     const [headerData, priceChartData, technicalSpecData, pageDescriptionData, faqSectionData, imagesData] = await Promise.all([
         fetchPageHeaderPayload(slug),
@@ -104,9 +114,9 @@ export default async function CarPage({ params }: { params: { slug: string } }) 
 export async function generateStaticParams() {
     // Fetch the slugs for all the pages
     const slugs = await fetchAllPageSlugs();
-
+    console.log(slugs);
     // Generate the static params for each slug
     return slugs.map((slug) => ({
-        params: {slug},
+        slug
     }));
 }
