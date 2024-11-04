@@ -17,18 +17,21 @@ export default function FAQSectionEntry({
 
     return (
         <motion.li
+            // @ts-ignore
             className={`flex flex-col w-full mx-auto mb-4 py-2 px-6  rounded-md hover:cursor-pointer group`}
             animate={{ backgroundColor: expanded ? '#171717' : '#0a0a0a' }}
             layout
             onClick={() => setExpanded(!expanded)}
         >
             <motion.div
+                // @ts-ignore
                 className='flex flex-row justify-between items-center'
                 layout='position'
                 initial={false}
             >
                 <motion.h3
                     layout='position'
+                    // @ts-ignore
                     className='md:text-3xl text-lg text-neutral-200'
                     animate={{ color: expanded ? '#1dbfe9' : '#e5e5e5' }}
                 >
@@ -64,6 +67,7 @@ export default function FAQSectionEntry({
                                 transition: { duration: 0.1 },
                             },
                         }}
+                        // @ts-ignore
                         className='text-neutral-400 py-2'
                     >
                         {content}

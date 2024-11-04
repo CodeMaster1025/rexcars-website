@@ -3,11 +3,12 @@ import Link from 'next/link';
 
 export default function FacebookIcon({ width, height }: iconProps) {
     return (
-        <figure aria-label='Facebook'>
+        <figure >
             <Link
                 href='https://www.facebook.com/profile.php?id=61558777172721'
                 rel='noopener norefferer'
                 target='_blank'
+                aria-label='Facebook'
             >
                 <svg
                     viewBox='0 0 128 128'

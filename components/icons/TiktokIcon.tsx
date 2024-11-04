@@ -3,11 +3,12 @@ import Link from 'next/link';
 
 export default function TiktokIcon({ width, height }: iconProps) {
     return (
-        <figure aria-label='Tiktok'>
+        <figure >
             <Link
                 href='https://www.tiktok.com/@rex.cars'
                 rel='noopener norefferer'
                 target='_blank'
+                aria-label='Tiktok'
             >
                 <svg
                     viewBox='0 0 32 32'

@@ -90,12 +90,14 @@ export default function MobileNavbarItemList() {
             />
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div className='flex flex-col absolute top-[69.5px] right-0 min-w-[50vw] w-[300px] bg-neutral-900 rounded-l-xl z-30'
+                    // @ts-ignore
+                    <motion.div className='flex flex-col absolute top-[69.5px] right-0 min-w-[50vw] w-[300px] bg-neutral-900 rounded-l-xl z-[9999]'
                     initial="hidden"
                     animate={isOpen ? "visible" : "hidden"}
                     exit="hidden"
                     variants={navContainer}
                     >
+                        {/* @ts-ignore */}
                         <motion.ul className='w-[80%] h-full mx-auto flex flex-col list-none my-10 justify-between'
                         initial="hidden"
                         animate="visible"
@@ -103,12 +105,14 @@ export default function MobileNavbarItemList() {
                         variants={navList}
                         >
                             {navItems.map((item, index) => {
+                                // @ts-ignore
                                 return (<motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)} key={index}>
                                     <Link href={item.href} className='text-neutral-200 text-lg text-center'>
                                         {item.value}
                                     </Link>
                                 </motion.li>)
                             })}
+                            {/* @ts-ignore */}
                             <motion.li className='flex justify-center py-4' variants={navItem} onClick={() => setIsOpen(false)} key={4}>
                             <OutlineButton
                                 value='Zarezerwuj'

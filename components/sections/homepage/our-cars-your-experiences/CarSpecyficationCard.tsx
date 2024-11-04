@@ -1,5 +1,5 @@
 "use client"
-import { useRef } from 'react';
+import { useRef, type JSX } from 'react';
 
 type carSpecyficationCardProps = {
     icon: JSX.Element | null;
