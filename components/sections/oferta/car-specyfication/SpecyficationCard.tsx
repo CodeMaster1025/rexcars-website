@@ -1,4 +1,3 @@
-import type { JSX } from "react";
 export default function SpecyficationCard({
     icon,
     heading,
