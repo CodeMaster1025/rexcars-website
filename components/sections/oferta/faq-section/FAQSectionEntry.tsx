@@ -21,6 +21,7 @@ export default function FAQSectionEntry({
             animate={{ backgroundColor: expanded ? '#171717' : '#0a0a0a' }}
             layout
             onClick={() => setExpanded(!expanded)}
+            itemScope itemProp="mainEntity" itemType="https://schema.org/Question"
         >
             <motion.div
                 className='flex flex-row justify-between items-center'
@@ -31,6 +32,7 @@ export default function FAQSectionEntry({
                     layout='position'
                     className='md:text-3xl text-lg text-neutral-200'
                     animate={{ color: expanded ? '#1dbfe9' : '#e5e5e5' }}
+                    itemProp="name"
                 >
                     {heading}
                 </motion.h3>
@@ -65,6 +67,7 @@ export default function FAQSectionEntry({
                             },
                         }}
                         className='text-neutral-400 py-2'
+                        itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"
                     >
                         {content}
                     </motion.p>

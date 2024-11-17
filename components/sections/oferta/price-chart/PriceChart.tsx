@@ -10,24 +10,25 @@ type IPriceChartProps = {
 
 export default async function PriceChart({ entries }: IPriceChartProps) {
     return (
-        <section className='flex flex-col lg:basis-3/12 md:basis-4/12 bg-neutral-800 py-4 rounded-lg'>
-            <h2 className='text-3xl text-blue-primary font-semibold text-center pb-6 '>
+        <section className='flex flex-col lg:basis-3/12 md:basis-4/12 bg-neutral-800 py-4 rounded-lg' itemProp="offers" itemScope itemType="https://schema.org/AggregateOffer">
+            <meta itemProp="priceCurrency" content="PLN"/>
+            <p className='text-3xl text-blue-primary font-semibold text-center pb-6 '>
                 Cennik wynajmu
-            </h2>
+            </p>
             <ul className='flex flex-col'>
                 {entries.map(
-                    ({ duration, price, kilometersLimit, perDay, _key }) => (
-                        <PriceChartEntry duration={duration} price={price} kilometersLimit={kilometersLimit} perDay={perDay} key={_key} _key={_key}/>
+                    ({ duration, price, kilometersLimit, perDay, _key }, index) => (
+                        <PriceChartEntry duration={duration} price={price} kilometersLimit={kilometersLimit} perDay={perDay} key={_key} _key={_key} index={index}/>
                     )
                 )}
             </ul>
-            <h4 className='text-neutral-400 pl-4 text-sm font-thin italic'>
+            <p className='text-neutral-400 pl-4 text-sm font-thin italic'>
                 Dodatkowy km - 2 pln
-            </h4>
+            </p>
 
-            <h2 className='text-3xl text-blue-primary font-semibold pt-4 pl-4 '>
+            <h4 className='text-3xl text-blue-primary font-semibold pt-4 pl-4 '>
                 Dodatki:
-            </h2>
+            </h4>
             <ul className='flex flex-col'>
             {/* PRICE CHART ADDONS */}
             <PriceChartAddonEntry addonName='Dodatkowe 100km limitu' price={150}/>

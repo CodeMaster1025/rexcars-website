@@ -4,4 +4,5 @@ export type IPriceChartEntry = {
     price: number;
     kilometersLimit: number;
     perDay: boolean;
+    index?: number;
 }

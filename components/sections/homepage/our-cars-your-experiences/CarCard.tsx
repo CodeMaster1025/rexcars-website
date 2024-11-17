@@ -5,8 +5,8 @@ import CarSpecyficationCardWrapper from "./carSpecyficationCardWrapper/CarSpecyf
 
 export default function CarCard({ car }: { car: ICar }) {
     return (
-        <div className="flex flex-col md:basis-1/2 mb-6 md:mb-0">
-            <h3 className='text-center md:text-4xl text-2xl text-neutral-200 md:my-6 mb-2'>
+        <div className="flex flex-col">
+            <h3 className='text-center md:text-4xl text-2xl text-neutral-200 md:my-4 mb-2'>
                 {car.carMake}
                 {" "}
                 <span className="text-blue-primary font-semibold">{car.carModel}</span>

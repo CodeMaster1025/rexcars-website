@@ -7,11 +7,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Wypożyczalnia samochodów sportowych | RexCars",
-    description: "Wypożyczalnia samochodów sportowych z dowozem na całą Polskę. Szeroka gama dostępnych aut sportowych na wynajem. Spełnij swoje motoryzacyjne marzenia już dziś!",
+    description: "Wypożyczalnia samochodów sportowych - ✓ dowóz na całą Polskę ✓ Wynajem bez kaucji ✓ Konkurencyjne ceny ✓ Wypożycz samochód sportowy już dziś!",
     robots: "index, follow",
     openGraph: {
         title: "Wypożyczalnia samochodów sportowych | RexCars",
-        description: "Wypożyczalnia samochodów sportowych z dowozem na całą Polskę. Szeroka gama dostępnych aut sportowych na wynajem. Spełnij swoje motoryzacyjne marzenia już dziś!",
+        description: "Wypożyczalnia samochodów sportowych - ✓ dowóz na całą Polskę ✓ Wynajem bez kaucji ✓ Konkurencyjne ceny ✓ Wypożycz samochód sportowy już dziś!",
         type: "website",
         siteName: "Wypożyczalnia samochodów sportowych | RexCars",
         locale: "pl/PL",

@@ -76,6 +76,7 @@ export default function ImagesGallery({ images }: { images: IImagesData }) {
                                     onClick={() => {
                                         setIsLightboxOpen(true);
                                     }}
+                                    itemProp="image"
                                 />
                         );
                     })}

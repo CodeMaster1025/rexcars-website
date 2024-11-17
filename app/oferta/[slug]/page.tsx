@@ -33,14 +33,14 @@ export async function generateMetadata(props: {
     if (!data) notFound();
 
     const metadata: Metadata = {
-        title: `Wynajem ${data.carMake} ${data.carModel}`,
-        description: `${data.carMake} ${data.carModel} na wynajem w całej Polsce. Możliwość dowozu samochodu do klienta. Spełnij swoje motoryzacyjne marzenia już dziś i wynajmij sportowy samochód.`,
+        title: `${data.carMake} ${data.carModel} wynajem - Wypożyczalnia samochodów sportowych | RexCars`,
+        description: `${data.carMake} ${data.carModel} na wynajem w całej Polsce. ✓ Konkurencyjne ceny ✓ Bez kaucji  ✓ Dowóz samochodu do klienta. Sprawdź naszą ofertę wynajmu ${data.carMake} ${data.carModel}!`,
         robots: "index, follow",
         openGraph: {
-            title: `${data.carMake} ${data.carModel} dostępny na wynajem | Wypożyczalnia samochodów sportowych RexCars`,
+            title: `${data.carMake} ${data.carModel} dostępny na wynajem - Wypożyczalnia samochodów sportowych | RexCars`,
             description: `Samochód sportowy ${data.carMake} ${data.carModel} na wynajem. Dowóz auta na całą Polskę.`,
             type: "website",
-            siteName: `Wynajem ${data.carMake} ${data.carModel} | Wypożyczalnia samochodów sportowych RexCars`,
+            siteName: `Wynajem ${data.carMake} ${data.carModel} - Wypożyczalnia samochodów sportowych | RexCars`,
             locale: "pl/PL",
             images: [
                 {
@@ -85,9 +85,9 @@ export default async function CarPage(props: {
     };
 
     return (
-        <>
+        <article itemScope itemType="https://schema.org/Product">
             <header className='flex flex-col md:mt-[4%] md:mb-[2%] my-[10%]'>
-                <h1 className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold w-full'>
+                <h1 itemProp="name" className='text-neutral-200 md:text-5xl text-3xl text-center font-semibold w-full'>
                     Wynajem {headerData.carMake} <span className='text-blue-primary'>{headerData.carModel}</span>
                 </h1>
             </header>
@@ -106,7 +106,7 @@ export default async function CarPage(props: {
 
                 <FAQSection entries={faqSectionData}/>
             </main>
-        </>
+        </article>
     );
 }
 
